@@ -269,7 +269,7 @@ export default function Commander() {
               <div className="mt-14 pt-8 pb-8 border-t border-b border-line flex flex-col gap-2">
                 <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">à partir de</span>
                 <span className="font-display font-light text-[64px] leading-none">
-                  450 <em className="italic text-fg-soft">€</em>
+                  250 <em className="italic text-fg-soft">€</em>
                 </span>
                 <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">
                   format A3 — un sujet — graphite
