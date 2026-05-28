@@ -153,68 +153,77 @@ function HeroSection() {
 /* ============================================================
    Featured work
    ============================================================ */
+const FEATURED_META = [
+  ['Format',    '40 × 50 cm'],
+  ['Technique', 'Graphite'],
+  ['Durée',     '42 heures'],
+  ['Année',     '2026'],
+] as const
+
 function FeaturedSection() {
   return (
-    <section
-      className="section grid items-start"
-      style={{
-        padding: 'clamp(80px,12vw,160px) var(--pad-x)',
-        gridTemplateColumns: '1fr 1.3fr',
-        gridTemplateAreas: '"meta figure" "caption figure"',
-        gap: 'clamp(40px,5vw,80px)',
-      }}
-    >
-      {/* Meta */}
-      <div className="flex flex-col gap-12" style={{ gridArea: 'meta' }}>
-        <Reveal>
-          <SectionLabel>Œuvre sélectionnée</SectionLabel>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <div className="grid grid-cols-2 gap-7">
-            {[
-              ['Format',    '40 × 50 cm'],
-              ['Technique', 'Graphite'],
-              ['Durée',     '42 heures'],
-              ['Année',     '2026'],
-            ].map(([k, v]) => (
-              <div key={k} className="flex flex-col gap-1.5">
-                <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">{k}</span>
-                <span className="font-display italic text-[28px] text-fg">{v}</span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
+    <section style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
 
-      {/* Figure */}
-      <Reveal variant="clip" style={{ gridArea: 'figure' }}>
-        <Placeholder
-          label="featured 01"
-          description="œuvre sélectionnée — vue large"
-          aspectRatio="5/3"
-        />
+      {/* Label above */}
+      <Reveal className="mb-10">
+        <SectionLabel>Œuvre sélectionnée</SectionLabel>
       </Reveal>
 
-      {/* Caption */}
-      <div className="flex flex-col gap-7 max-w-[460px]" style={{ gridArea: 'caption' }}>
-        <Reveal>
-          <h2
-            className="font-display font-light italic leading-[0.95]"
-            style={{ fontSize: 'clamp(40px,5vw,80px)' }}
-          >
-            Le regard, avant tout.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.12} className="flex flex-col gap-6">
-          <p className="text-[16px] leading-[1.65] text-fg-soft max-w-[380px]">
-            Cette œuvre, réalisée au crayon graphite sur papier Bristol, explore
-            l'intensité du regard et la finesse des textures de peau. Chaque
-            contraste a été travaillé en couches successives.
-          </p>
-          <Btn to="/galerie">
-            Voir l'œuvre complète <FiArrowRight />
-          </Btn>
-        </Reveal>
+      {/* Two-column layout */}
+      <div
+        className="grid items-start"
+        style={{ gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,5vw,80px)' }}
+      >
+        {/* ── Left : image + metadata below ── */}
+        <div>
+          <Reveal variant="clip">
+            <Placeholder
+              label="n° 014"
+              description="portrait principal — format vertical"
+              aspectRatio="4/5"
+            />
+          </Reveal>
+
+          {/* Metadata grid below the image — small text */}
+          <Reveal delay={0.1}>
+            <div className="grid grid-cols-4 gap-x-4 mt-5 pt-4 border-t border-line">
+              {FEATURED_META.map(([k, v]) => (
+                <div key={k} className="flex flex-col gap-1">
+                  <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-fg-mute">
+                    {k}
+                  </span>
+                  <span className="font-mono text-[11px] text-fg-soft">
+                    {v}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        {/* ── Right : title + description + button ── */}
+        <div className="flex flex-col justify-center gap-8" style={{ paddingTop: 'clamp(20px,4vw,60px)' }}>
+          <Reveal>
+            <h2
+              className="font-display font-light italic leading-[0.95]"
+              style={{ fontSize: 'clamp(36px,4.5vw,72px)' }}
+            >
+              Le regard,<br />avant tout.
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.1} className="flex flex-col gap-6">
+            <p className="text-[15px] leading-[1.7] text-fg-soft">
+              Cette œuvre, réalisée au crayon graphite sur papier Bristol, explore
+              l'intensité du regard et la finesse des textures de peau. Chaque
+              contraste a été travaillé en couches successives, parfois pendant
+              plus de dix-huit heures sur un seul œil.
+            </p>
+            <Btn to="/galerie">
+              Voir l'œuvre complète <FiArrowRight />
+            </Btn>
+          </Reveal>
+        </div>
       </div>
     </section>
   )
