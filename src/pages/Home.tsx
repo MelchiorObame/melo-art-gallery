@@ -74,17 +74,17 @@ function HeroSection() {
       />
 
       {/* 3 — Lede + CTAs (left column, portrait sits to the right via absolute) */}
-      <Reveal delay={0.2} className="max-w-[420px] flex flex-col gap-8 relative z-[3] shrink-0">
-        <p className="font-display font-light text-[clamp(18px,1.4vw,24px)] italic text-fg-soft leading-[1.45]">
+      <Reveal delay={0.2} className="max-w-[560px] flex flex-col gap-8 relative z-[3] shrink-0">
+        <p className="max-w-[420px] font-display font-light text-[clamp(18px,1.4vw,24px)] italic text-fg-soft leading-[1.45]">
           Crayon graphite, fusain, technique mixte. Un travail patient
           du visage — le regard, la peau, la lumière — jusqu'à ce que
           le dessin respire.
         </p>
-        <div className="flex flex-wrap items-center gap-3.5">
-          <Btn to="/galerie" filled>
+        <div className="flex flex-nowrap items-center gap-3">
+          <Btn to="/galerie" filled className="px-4 md:px-6 text-[10px] md:text-[11px]">
             Voir la galerie <FiArrowRight />
           </Btn>
-          <Btn to="/commander">Commander un portrait</Btn>
+          <Btn to="/commander" className="px-4 md:px-6 text-[10px] md:text-[11px]">Commander un portrait</Btn>
         </div>
       </Reveal>
 
