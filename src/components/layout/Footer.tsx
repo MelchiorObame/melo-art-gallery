@@ -25,18 +25,18 @@ const legal = [
 export default function Footer() {
   return (
     <footer
-      className="border-t border-line bg-bg grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10"
+      className="border-t border-line bg-bg grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.45fr_1fr_1fr_1fr] gap-10"
       style={{
         padding: '80px var(--pad-x) 40px',
       }}
     >
       {/* Brand */}
-      <Reveal>
+      <Reveal className="md:col-span-2 xl:col-span-1 min-w-0">
         <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">
           Atelier Melo — Paris
         </span>
         <div
-          className="font-display font-light text-[clamp(56px,9vw,140px)] leading-none mt-6"
+          className="font-display font-light text-[clamp(52px,8vw,132px)] leading-[0.9] mt-6 max-w-full whitespace-nowrap"
         >
           <em className="italic">Melo</em>Art
         </div>
@@ -47,7 +47,7 @@ export default function Footer() {
       </Reveal>
 
       {/* Studio links */}
-      <Reveal delay={0.05}>
+      <Reveal delay={0.05} className="min-w-0">
         <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-fg-soft mb-[18px]">Studio</h4>
         <ul className="space-y-2.5">
           {studio.map(({ to, label }) => (
@@ -59,7 +59,7 @@ export default function Footer() {
       </Reveal>
 
       {/* Social links */}
-      <Reveal delay={0.08}>
+      <Reveal delay={0.08} className="min-w-0">
         <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-fg-soft mb-[18px]">Suivre</h4>
         <ul className="space-y-2.5">
           {social.map(({ href, icon, label }) => (
@@ -73,7 +73,7 @@ export default function Footer() {
       </Reveal>
 
       {/* Contact */}
-      <Reveal delay={0.11}>
+      <Reveal delay={0.11} className="min-w-0">
         <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-fg-soft mb-[18px]">Contact</h4>
         <ul className="space-y-2.5 text-sm text-fg-soft">
           <li>melo@melo-art.fr</li>
