@@ -14,15 +14,15 @@ const variants = {
     visible: { opacity: 1, y: 0  },
   },
   clip: {
-    hidden:  { clipPath: 'inset(0 0 100% 0)' },
-    visible: { clipPath: 'inset(0 0 0% 0)'   },
+    hidden:  { opacity: 0 },
+    visible: { opacity: 1 },
   },
 }
 
 const durations: Record<Variant, number> = {
   fade: 1,
   rise: 1.4,
-  clip: 1.4,
+  clip: 1.9,
 }
 
 interface RevealProps {

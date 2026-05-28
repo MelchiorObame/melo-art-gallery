@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { FiArrowRight, FiCheck } from 'react-icons/fi'
+import { FiArrowRight, FiCheck, FiUpload, FiFile } from 'react-icons/fi'
 import Reveal from '../components/ui/Reveal'
 import Placeholder from '../components/ui/Placeholder'
 import Btn from '../components/ui/Btn'
@@ -12,15 +12,16 @@ const schema = z.object({
   name:      z.string().min(2, 'Votre nom est requis'),
   email:     z.string().email('Adresse email invalide'),
   type:      z.enum(['Individuel', 'Couple', 'Famille', 'Enfant', 'Hommage', 'Artiste / icône']),
-  format:    z.enum(['A4', 'A3', 'A2', 'Sur mesure']),
+  format:    z.enum(['A3', 'A2', 'Sur mesure']),
   technique: z.enum(['Graphite', 'Fusain', 'Crayon couleur', 'Technique mixte']),
   deadline:  z.string().optional(),
   message:   z.string().optional(),
+  photo:     z.any().optional(),
 })
 type DevisForm = z.infer<typeof schema>
 
 const TYPES     = ['Individuel', 'Couple', 'Famille', 'Enfant', 'Hommage', 'Artiste / icône'] as const
-const FORMATS   = ['A4', 'A3', 'A2', 'Sur mesure'] as const
+const FORMATS   = ['A3', 'A2', 'Sur mesure'] as const
 const TECHS     = ['Graphite', 'Fusain', 'Crayon couleur', 'Technique mixte'] as const
 
 const PORTRAIT_TYPES = [
@@ -52,11 +53,14 @@ const TIPS = [
 
 export default function Commander() {
   const [sent, setSent] = useState(false)
+  const [photoName, setPhotoName] = useState('')
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<DevisForm>({
     resolver: zodResolver(schema),
     defaultValues: { type: 'Individuel', format: 'A3', technique: 'Graphite' },
   })
+
+  const photoReg = register('photo')
 
   const onSubmit = (_data: DevisForm) => {
     // TODO: wire to email service
@@ -115,7 +119,6 @@ export default function Commander() {
             eyebrow: '02 — Formats',
             title: 'Sur papier\nBristol grain fin.',
             rows: [
-              ['A4',     '21 × 29,7 cm',  'étude / esquisse'],
               ['A3',     '29,7 × 42 cm',  'portrait standard'],
               ['A2',     '42 × 59,4 cm',  'œuvre principale'],
               ['CUSTOM', 'sur mesure',     "jusqu'à 70 × 100 cm"],
@@ -288,7 +291,7 @@ export default function Commander() {
                   </FormField>
 
                   <FormField label="Email" error={errors.email?.message}>
-                    <input {...register('email')} type="email" placeholder="marie@exemple.fr" className={fieldCls} />
+                    <input {...register('email')} type="email" placeholder="obamemelchior@gmail.com.fr" className={fieldCls} />
                   </FormField>
 
                   <FormField label="Type de portrait" className="col-span-2">
@@ -316,6 +319,44 @@ export default function Commander() {
                   <FormField label="Description du projet" className="col-span-2">
                     <textarea {...register('message')} rows={5} placeholder="Parlez-moi du modèle, du contexte, de ce que vous aimeriez transmettre..." className={`${fieldCls} resize-y min-h-[100px]`} />
                   </FormField>
+
+                  {/* ── Photo upload ── */}
+                  <div className="col-span-2 flex flex-col gap-2">
+                    <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">
+                      Photo de référence
+                    </span>
+                    <label
+                      htmlFor="photo-upload"
+                      className="group flex flex-col items-center justify-center gap-3 border border-dashed border-line py-10 px-6 cursor-pointer hover:border-fg hover:bg-bg-soft transition-all duration-300 text-center"
+                    >
+                      {photoName ? (
+                        <>
+                          <FiFile size={22} className="text-accent" />
+                          <span className="font-mono text-[11px] tracking-wide text-fg">{photoName}</span>
+                          <span className="font-mono text-[10px] text-fg-mute">Cliquer pour changer</span>
+                        </>
+                      ) : (
+                        <>
+                          <FiUpload size={22} className="text-fg-soft group-hover:text-fg transition-colors duration-300" />
+                          <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-fg-soft group-hover:text-fg transition-colors duration-300">
+                            Glissez ou cliquez pour importer
+                          </span>
+                          <span className="font-mono text-[10px] text-fg-mute">JPG, PNG, WEBP — max 10 Mo</span>
+                        </>
+                      )}
+                    </label>
+                    <input
+                      {...photoReg}
+                      id="photo-upload"
+                      type="file"
+                      accept="image/jpeg,image/jpg,image/png,image/webp"
+                      className="sr-only"
+                      onChange={(e) => {
+                        photoReg.onChange(e)
+                        setPhotoName(e.target.files?.[0]?.name ?? '')
+                      }}
+                    />
+                  </div>
 
                   <div className="col-span-2 flex justify-between items-center gap-4 flex-wrap mt-4">
                     <Btn type="submit" filled disabled={isSubmitting}>

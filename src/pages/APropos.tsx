@@ -50,9 +50,9 @@ export default function APropos() {
               className="font-display font-light leading-[0.9] my-8"
               style={{ fontSize: 'clamp(56px,10vw,180px)' }}
             >
-              <em className="italic text-accent">Melo,</em><br />
-              portraitiste<br />
-              hyperréaliste.
+              <em className="italic text-accent">L'artiste,</em><br />
+              le geste,<br />
+              la présence.
             </h1>
           </Reveal>
           <Reveal delay={0.16}>

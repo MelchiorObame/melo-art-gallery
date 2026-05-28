@@ -20,22 +20,19 @@ export default function Nav() {
         <motion.div className="h-full bg-fg origin-left" style={{ scaleX }} />
       </div>
 
-      {/* Nav — frosted glass */}
+      {/* Nav — fond verre dépoli */}
       <nav
         className="fixed top-0 left-0 right-0 z-[80] flex items-center justify-between text-fg"
         style={{
-          padding: '20px var(--pad-x)',
-          background: 'rgba(243, 237, 227, 0.80)',
+          padding: '22px var(--pad-x)',
+          background: 'rgba(243, 237, 227, 0.82)',
           backdropFilter: 'blur(24px) saturate(160%)',
           WebkitBackdropFilter: 'blur(24px) saturate(160%)',
           borderBottom: '1px solid rgba(43, 37, 32, 0.08)',
         }}
         aria-label="Principal"
       >
-        <NavLink
-          to="/"
-          className="font-display text-[22px] tracking-[0.04em] text-fg"
-        >
+        <NavLink to="/" className="font-display text-[22px] tracking-[0.04em] text-fg">
           Melo<sup className="font-mono text-[9px] tracking-[0.2em] ml-1.5 opacity-60">ART</sup>
         </NavLink>
 

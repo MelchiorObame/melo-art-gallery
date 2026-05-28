@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { FiArrowRight, FiArrowUpRight, FiInstagram } from 'react-icons/fi'
 import { SiTiktok, SiYoutube } from 'react-icons/si'
 import Reveal from '../components/ui/Reveal'
-import Placeholder from '../components/ui/Placeholder'
 import Marquee from '../components/ui/Marquee'
 import WorkCard from '../components/ui/WorkCard'
 import Btn from '../components/ui/Btn'
@@ -38,7 +37,7 @@ export default function Home() {
    Hero
    ============================================================ */
 function HeroSection() {
-  const lines = ['Le portrait,', 'dessiné', 'à la main.']
+  const lines = ['Melo,', 'portraitiste', 'hyperréaliste.']
 
   return (
     // relative so the absolutely-positioned portrait anchors here, not to an inner div
@@ -67,19 +66,24 @@ function HeroSection() {
         style={{ fontSize: 'clamp(64px, 9vw, 160px)', letterSpacing: '-0.02em' }}
       >
         {lines.map((line, i) => (
-          <span
-            key={i}
-            className="block overflow-hidden"
-            style={{ textIndent: i === 1 ? '10vw' : i === 2 ? '4vw' : undefined }}
-          >
-            <motion.span
-              className={`block${i === 1 ? ' italic text-fg-soft' : ''}`}
-              initial={{ y: '105%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 + i * 0.12 }}
-            >
-              {line}
-            </motion.span>
+          <span key={i} className="block overflow-hidden">
+            <span className={`block${i === 1 ? ' italic text-fg-soft' : ''}`}>
+              {line.split(' ').map((word, wi) => (
+                <motion.span
+                  key={`${word}-${wi}`}
+                  className="inline-block mr-[0.25em]"
+                  initial={{ opacity: 0, y: '90%', filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{
+                    duration: 0.95,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: 0.1 + i * 0.18 + wi * 0.08,
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </span>
           </span>
         ))}
       </h1>
@@ -121,18 +125,21 @@ function HeroSection() {
       <div
         className="absolute z-[1] hidden md:block"
         style={{
-          top: '14vh',
+          top: '8vh',
           right: 'var(--pad-x)',
-          width: 'clamp(220px, 30vw, 420px)',
+          width: 'clamp(220px, 44vw, 640px)',
         }}
       >
         <Reveal variant="clip" delay={0.1}>
-          <figure>
-            <Placeholder
-              label="œuvre n° 014"
-              description="portrait principal — format vertical"
-              aspectRatio="3/4"
-            />
+          <figure className="group">
+            <div className="overflow-hidden">
+              <img
+                src="/images/mathieu_dart.jpg"
+                alt="Regard profond — portrait au crayon graphite"
+                className="w-full block transition-transform duration-[500ms] ease-art group-hover:scale-[1.13]"
+                style={{ aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'center top' }}
+              />
+            </div>
             <figcaption
               className="grid gap-4 items-baseline mt-3.5 font-mono text-[10px] tracking-[0.14em] uppercase text-fg-soft"
               style={{ gridTemplateColumns: 'auto 1fr' }}
@@ -176,10 +183,11 @@ function FeaturedSection() {
         {/* ── Left : image + metadata below ── */}
         <div>
           <Reveal variant="clip">
-            <Placeholder
-              label="n° 014"
-              description="portrait principal — format vertical"
-              aspectRatio="4/5"
+            <img
+              src="https://mathieudutemps.com/uploads/1/4/5/0/145098750/334252078-593722655702200-2255601889673066476-n_orig.jpg"
+              alt="Œuvre sélectionnée — portrait au crayon graphite"
+              className="w-full block"
+              style={{ aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top' }}
             />
           </Reveal>
 
@@ -234,7 +242,7 @@ function FeaturedSection() {
 function BioSection() {
   return (
     <section
-      className="grid items-start border-t border-line"
+      className="grid items-start border-t border-line bg-[#ddccb0]"
       style={{
         padding: 'clamp(52px,7vw,100px) var(--pad-x)',
         gridTemplateColumns: '2fr 1.2fr',
@@ -265,10 +273,11 @@ function BioSection() {
 
       {/* Right — photo */}
       <Reveal variant="clip" delay={0.1}>
-        <Placeholder
-          label="portrait Melo"
-          description="photo de l'artiste à l'atelier"
-          aspectRatio="4/5"
+        <img
+          src="https://mathieudutemps.com/uploads/1/4/5/0/145098750/400066553-369375942216075-2255719002411491936-n_orig.jpg"
+          alt="Portrait de Melo à l'atelier"
+          className="w-full block"
+          style={{ aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top' }}
         />
       </Reveal>
     </section>

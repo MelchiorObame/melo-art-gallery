@@ -16,6 +16,12 @@ const social = [
   { href: '#', icon: <SiYoutube />,   label: 'YouTube'   },
 ]
 
+const legal = [
+  { to: '/livraisons-retours',      label: 'Livraisons & retours'      },
+  { to: '/termes-conditions',       label: 'Termes et conditions'       },
+  { to: '/politique-confidentialite', label: 'Politique de confidentialité' },
+]
+
 export default function Footer() {
   return (
     <footer
@@ -78,9 +84,21 @@ export default function Footer() {
       </Reveal>
 
       {/* Bottom bar */}
-      <div className="col-span-full flex justify-between items-end pt-20 font-mono text-[11px] tracking-[0.14em] text-fg-soft">
+      <div className="col-span-full flex flex-wrap justify-between items-end gap-4 pt-20 border-t border-line font-mono text-[11px] tracking-[0.14em] text-fg-soft">
         <span>© Melo-Art. Tous droits réservés.</span>
-        <span>Conçu à l'atelier, avec amour.</span>
+
+        {/* Legal links */}
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          {legal.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className="hover:text-fg transition-colors duration-300"
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
       </div>
     </footer>
   )
