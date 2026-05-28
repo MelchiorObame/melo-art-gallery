@@ -122,6 +122,7 @@ function HeroSection() {
                 src="/images/mathieu_dart.jpg"
                 alt="Regard profond — portrait au crayon graphite"
                 className="w-full block transition-transform duration-[500ms] ease-art group-hover:scale-[1.13]"
+                decoding="async"
                 style={{ aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'center top' }}
               />
             </div>
@@ -171,6 +172,9 @@ function FeaturedSection() {
               src="https://mathieudutemps.com/uploads/1/4/5/0/145098750/334252078-593722655702200-2255601889673066476-n_orig.jpg"
               alt="Œuvre sélectionnée — portrait au crayon graphite"
               className="w-full block"
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               style={{ aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top' }}
             />
           </Reveal>
@@ -260,6 +264,9 @@ function BioSection() {
           src="https://mathieudutemps.com/uploads/1/4/5/0/145098750/400066553-369375942216075-2255719002411491936-n_orig.jpg"
           alt="Portrait de Melo à l'atelier"
           className="w-full block"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           style={{ aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top' }}
         />
       </Reveal>

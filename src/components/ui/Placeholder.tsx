@@ -11,6 +11,8 @@ const IMAGE_POOL = [
 ]
 
 const preloadedImages = new Set<string>()
+const pendingPreloads = new Map<string, Promise<void>>()
+let hasWarmedImagePool = false
 
 function preloadImage(src: string, onReady?: () => void) {
   if (preloadedImages.has(src)) {
@@ -18,15 +20,29 @@ function preloadImage(src: string, onReady?: () => void) {
     return
   }
 
-  const img = new Image()
-  img.onload = () => {
-    preloadedImages.add(src)
-    onReady?.()
+  const pending = pendingPreloads.get(src)
+  if (pending) {
+    if (onReady) pending.finally(onReady)
+    return
   }
-  img.onerror = () => {
+
+  const preloadPromise = new Promise<void>((resolve) => {
+    const img = new Image()
+    img.onload = () => {
+      preloadedImages.add(src)
+      resolve()
+    }
+    img.onerror = () => {
+      resolve()
+    }
+    img.src = src
+  })
+
+  pendingPreloads.set(src, preloadPromise)
+  preloadPromise.finally(() => {
+    pendingPreloads.delete(src)
     onReady?.()
-  }
-  img.src = src
+  })
 }
 
 function hashString(value: string) {
@@ -43,6 +59,8 @@ interface PlaceholderProps {
   description?: string
   aspectRatio?: string
   className?:  string
+  loading?: 'lazy' | 'eager'
+  fetchPriority?: 'high' | 'low' | 'auto'
 }
 
 export default function Placeholder({
@@ -50,6 +68,8 @@ export default function Placeholder({
   description,
   aspectRatio = '4/5',
   className,
+  loading = 'lazy',
+  fetchPriority = 'low',
 }: PlaceholderProps) {
   const imageSrc = useMemo(() => {
     const seed = `${label}|${description ?? ''}|${aspectRatio}`
@@ -60,6 +80,8 @@ export default function Placeholder({
 
   // Warm cache once for smoother navigation in gallery/dialog.
   useEffect(() => {
+    if (hasWarmedImagePool) return
+    hasWarmedImagePool = true
     IMAGE_POOL.forEach((src) => preloadImage(src))
   }, [])
 
@@ -79,8 +101,9 @@ export default function Placeholder({
         src={displaySrc}
         alt={description ? `Illustration ${description}` : 'Illustration portrait'}
         className="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
+        loading={loading}
         decoding="async"
+        fetchPriority={fetchPriority}
       />
 
       {/* Overlay for readability */}

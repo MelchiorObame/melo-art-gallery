@@ -62,6 +62,8 @@ export default function WorkDialog({
                   description={work.title}
                   aspectRatio={work.aspectRatio}
                   className="h-full min-h-[58vh] md:min-h-[72vh]"
+                  loading="eager"
+                  fetchPriority="high"
                 />
 
                 {/* Details */}
