@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FiInstagram } from 'react-icons/fi'
-import { SiTiktok, SiYoutube, SiBehance, SiPinterest } from 'react-icons/si'
+import { SiTiktok, SiYoutube } from 'react-icons/si'
 import Reveal from '../ui/Reveal'
 
 const studio = [

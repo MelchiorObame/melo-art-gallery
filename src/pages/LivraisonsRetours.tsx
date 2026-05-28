@@ -2,7 +2,21 @@ const LAST_UPDATE = '15 janvier 2025'
 
 import AnimatedTitle from '../components/ui/AnimatedTitle'
 
-const sections = [
+interface Block {
+  subtitle?: string
+  text?: string
+  list?: string[]
+  note?: string
+  address?: string
+}
+
+interface Section {
+  id: string
+  title: string
+  content: Block[]
+}
+
+const sections: Section[] = [
   {
     id: 'definitions',
     title: 'Interprétations et définitions',

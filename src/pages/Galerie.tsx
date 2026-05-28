@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import { memo, useCallback, useMemo, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
 import AnimatedTitle from '../components/ui/AnimatedTitle'
 import WorkCard from '../components/ui/WorkCard'
@@ -49,24 +49,13 @@ export default function Galerie() {
 
   const activeWork = activeIndex !== null ? filtered[activeIndex] : null
 
-  useEffect(() => {
-    if (activeIndex === null) return
-    if (filtered.length === 0) {
-      setActiveIndex(null)
-      return
-    }
-    if (activeIndex >= filtered.length) {
-      setActiveIndex(filtered.length - 1)
-    }
-  }, [activeIndex, filtered.length])
-
   const goPrev = () => {
-    if (activeIndex === null || filtered.length === 0) return
+    if (activeIndex === null || filtered.length === 0 || !activeWork) return
     setActiveIndex((activeIndex - 1 + filtered.length) % filtered.length)
   }
 
   const goNext = () => {
-    if (activeIndex === null || filtered.length === 0) return
+    if (activeIndex === null || filtered.length === 0 || !activeWork) return
     setActiveIndex((activeIndex + 1) % filtered.length)
   }
 

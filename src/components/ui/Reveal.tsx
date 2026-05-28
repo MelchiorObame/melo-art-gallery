@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import type { CSSProperties, ReactNode, ElementType } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { cn } from '../../lib/utils'
 
 type Variant = 'fade' | 'clip' | 'rise'
@@ -31,8 +31,17 @@ interface RevealProps {
   variant?:   Variant
   className?: string
   style?:     CSSProperties
-  as?:        ElementType
+  as?:        'div' | 'li' | 'section' | 'article' | 'header' | 'span'
 }
+
+const motionTags = {
+  div: motion.div,
+  li: motion.li,
+  section: motion.section,
+  article: motion.article,
+  header: motion.header,
+  span: motion.span,
+} as const
 
 export default function Reveal({
   children,
@@ -42,7 +51,7 @@ export default function Reveal({
   style,
   as: Tag = 'div',
 }: RevealProps) {
-  const MotionTag = motion(Tag as 'div')
+  const MotionTag = motionTags[Tag]
 
   return (
     <MotionTag

@@ -63,7 +63,7 @@ export default function Commander() {
 
   const photoReg = register('photo')
 
-  const onSubmit = (_data: DevisForm) => {
+  const onSubmit = () => {
     // TODO: wire to email service
     return new Promise<void>((res) => setTimeout(() => { setSent(true); res() }, 800))
   }
