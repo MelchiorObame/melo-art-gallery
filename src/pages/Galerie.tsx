@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
 import AnimatedTitle from '../components/ui/AnimatedTitle'
 import WorkCard from '../components/ui/WorkCard'
@@ -37,11 +37,42 @@ const DETAILS = [
 export default function Galerie() {
   const [cat,  setCat ] = useState<FilterCat>('all')
   const [tech, setTech] = useState<FilterTech>('all')
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  const filtered = WORKS.filter(
-    (w) => (cat  === 'all' || w.category  === cat)
-         && (tech === 'all' || w.technique === tech),
+  const filtered = useMemo(
+    () => WORKS.filter(
+      (w) => (cat  === 'all' || w.category  === cat)
+           && (tech === 'all' || w.technique === tech),
+    ),
+    [cat, tech],
   )
+
+  const activeWork = activeIndex !== null ? filtered[activeIndex] : null
+
+  useEffect(() => {
+    if (activeIndex === null) return
+    if (filtered.length === 0) {
+      setActiveIndex(null)
+      return
+    }
+    if (activeIndex >= filtered.length) {
+      setActiveIndex(filtered.length - 1)
+    }
+  }, [activeIndex, filtered.length])
+
+  const goPrev = () => {
+    if (activeIndex === null || filtered.length === 0) return
+    setActiveIndex((activeIndex - 1 + filtered.length) % filtered.length)
+  }
+
+  const goNext = () => {
+    if (activeIndex === null || filtered.length === 0) return
+    setActiveIndex((activeIndex + 1) % filtered.length)
+  }
+
+  const openWorkAt = useCallback((index: number) => {
+    setActiveIndex(index)
+  }, [])
 
   return (
     <main>
@@ -102,20 +133,21 @@ export default function Galerie() {
             Aucune œuvre ne correspond à ces filtres.
           </p>
         ) : (
-          <div style={{ columnCount: 3, columnGap: 'clamp(16px,2vw,32px)' }}>
-            {filtered.map((work, i) => (
-              <div key={work.id} className="break-inside-avoid mb-[clamp(16px,2vw,32px)]">
-                <WorkDialog
-                  work={work}
-                  trigger={
-                    <Reveal delay={(i % 6) * 0.06}>
-                      <WorkCard work={work} />
-                    </Reveal>
-                  }
-                />
-              </div>
-            ))}
-          </div>
+          <GalleryMasonry works={filtered} onOpen={openWorkAt} />
+        )}
+
+        {activeWork && (
+          <WorkDialog
+            work={activeWork}
+            open={activeIndex !== null}
+            onOpenChange={(open) => {
+              if (!open) setActiveIndex(null)
+            }}
+            onPrev={filtered.length > 1 ? goPrev : undefined}
+            onNext={filtered.length > 1 ? goNext : undefined}
+            position={(activeIndex ?? 0) + 1}
+            total={filtered.length}
+          />
         )}
       </section>
 
@@ -172,6 +204,26 @@ export default function Galerie() {
     </main>
   )
 }
+
+const GalleryMasonry = memo(function GalleryMasonry({
+  works,
+  onOpen,
+}: {
+  works: typeof WORKS
+  onOpen: (index: number) => void
+}) {
+  return (
+    <div style={{ columnCount: 3, columnGap: 'clamp(16px,2vw,32px)' }}>
+      {works.map((work, i) => (
+        <div key={work.id} className="break-inside-avoid mb-[clamp(16px,2vw,32px)]">
+          <Reveal delay={(i % 6) * 0.06}>
+            <WorkCard work={work} onClick={() => onOpen(i)} />
+          </Reveal>
+        </div>
+      ))}
+    </div>
+  )
+})
 
 /* ---- FilterGroup helper ---- */
 function FilterGroup<T extends string>({
