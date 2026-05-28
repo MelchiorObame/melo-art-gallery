@@ -5,6 +5,7 @@ import Galerie from './pages/Galerie'
 import Commander from './pages/Commander'
 import APropos from './pages/APropos'
 import Processus from './pages/Processus'
+import Contact from './pages/Contact'
 import LivraisonsRetours from './pages/LivraisonsRetours'
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite'
 import TermesConditions from './pages/TermesConditions'
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="commander" element={<Commander />} />
           <Route path="a-propos" element={<APropos />} />
           <Route path="processus" element={<Processus />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="livraisons-retours" element={<LivraisonsRetours />} />
           <Route path="termes-conditions" element={<TermesConditions />} />
           <Route path="politique-confidentialite" element={<PolitiqueConfidentialite />} />
