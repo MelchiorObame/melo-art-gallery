@@ -84,8 +84,7 @@ export default function Commander() {
       {/* Types */}
       <section style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
         <div
-          className="grid items-end mb-[clamp(40px,5vw,80px)]"
-          style={{ gridTemplateColumns: '1fr 2fr', gap: 'clamp(24px,4vw,80px)' }}
+          className="grid grid-cols-1 md:grid-cols-[1fr_2fr] items-end mb-[clamp(40px,5vw,80px)] gap-[clamp(24px,4vw,80px)]"
         >
           <Reveal>
             <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">01 — Types de portraits</span>
@@ -96,7 +95,7 @@ export default function Commander() {
             </h2>
           </Reveal>
         </div>
-        <div className="grid grid-cols-3 gap-[clamp(20px,3vw,48px)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[clamp(20px,3vw,48px)]">
           {PORTRAIT_TYPES.map(({ label, desc }, i) => (
             <Reveal key={label} delay={i * 0.06}>
               <article className="flex flex-col gap-4">
@@ -111,10 +110,9 @@ export default function Commander() {
 
       {/* Formats & Techniques */}
       <section
-        className="border-t border-line grid items-start"
+        className="border-t border-line grid grid-cols-1 md:grid-cols-2 items-start"
         style={{
           padding: 'clamp(52px,7vw,100px) var(--pad-x)',
-          gridTemplateColumns: '1fr 1fr',
           gap: 'clamp(40px,6vw,120px)',
         }}
       >
@@ -153,8 +151,7 @@ export default function Commander() {
                 {rows.map(([k, v, sub]) => (
                   <li
                     key={k}
-                    className="grid items-baseline gap-5 py-[22px] border-b border-line hover:pl-4 hover:bg-bg-soft transition-all duration-300"
-                    style={{ gridTemplateColumns: '80px 1fr 1fr' }}
+                    className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] items-baseline gap-3 md:gap-5 py-[22px] border-b border-line md:hover:pl-4 hover:bg-bg-soft transition-all duration-300"
                   >
                     <span className="font-mono text-[11px] tracking-wide uppercase text-fg-soft">{k}</span>
                     <span className="text-[15px]">{v}</span>
@@ -185,7 +182,7 @@ export default function Commander() {
             </h2>
           </Reveal>
         </div>
-        <ol className="grid border-t border-l border-line" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <ol className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-t border-l border-line">
           {PROCESS_STEPS.map(({ n, title, desc }, i) => (
             <Reveal key={n} delay={i * 0.06} as="li" className="border-r border-b border-line p-8 pb-16 flex flex-col gap-4 min-h-[240px] hover:bg-bg-soft transition-colors duration-[400ms]">
               <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">{n}</span>
@@ -198,10 +195,9 @@ export default function Commander() {
 
       {/* Photo tips */}
       <section
-        className="border-t border-line grid items-start"
+        className="border-t border-line grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] items-start"
         style={{
           padding: 'clamp(52px,7vw,100px) var(--pad-x)',
-          gridTemplateColumns: '1fr 1.2fr',
           gap: 'clamp(40px,6vw,120px)',
         }}
       >
@@ -226,7 +222,7 @@ export default function Commander() {
         </div>
         <ul>
           {TIPS.map(({ title, desc }, i) => (
-            <Reveal key={title} delay={i * 0.06} as="li" className="grid items-start gap-6 py-7 border-b border-line first:border-t" style={{ gridTemplateColumns: '60px 1fr' }}>
+            <Reveal key={title} delay={i * 0.06} as="li" className="grid grid-cols-[48px_1fr] md:grid-cols-[60px_1fr] items-start gap-4 md:gap-6 py-7 border-b border-line first:border-t">
               <span className="font-display italic text-[36px] text-accent">✓</span>
               <div>
                 <h4 className="font-display italic text-[22px] font-normal mb-1.5">{title}</h4>
@@ -244,8 +240,7 @@ export default function Commander() {
         style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
       >
         <div
-          className="grid items-start"
-          style={{ gridTemplateColumns: '1fr 1.4fr', gap: 'clamp(40px,5vw,100px)' }}
+          className="grid grid-cols-1 xl:grid-cols-[1fr_1.4fr] items-start gap-[clamp(40px,5vw,100px)]"
         >
           {/* Left: heading + price */}
           <div>
@@ -289,7 +284,7 @@ export default function Commander() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-7">
+                <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-7">
                   <FormField label="Nom complet" error={errors.name?.message}>
                     <input {...register('name')} placeholder="Marie Dupont" className={fieldCls} />
                   </FormField>

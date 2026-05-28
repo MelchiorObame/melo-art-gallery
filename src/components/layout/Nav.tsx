@@ -23,7 +23,7 @@ export default function Nav() {
 
       {/* Nav — fond verre dépoli */}
       <nav
-        className="fixed top-0 left-0 right-0 z-[80] flex items-center justify-between text-fg"
+        className="fixed top-0 left-0 right-0 z-[80] flex flex-wrap items-center justify-between gap-3 text-fg"
         style={{
           padding: '22px var(--pad-x)',
           background: 'rgba(243, 237, 227, 0.82)',
@@ -37,7 +37,7 @@ export default function Nav() {
           Melo<sup className="font-mono text-[9px] tracking-[0.2em] ml-1.5 opacity-60">ART</sup>
         </NavLink>
 
-        <div className="flex gap-8 font-mono text-[11px] tracking-wide uppercase">
+        <div className="flex flex-wrap items-center gap-4 md:gap-8 font-mono text-[10px] md:text-[11px] tracking-wide uppercase justify-end">
           {links.map(({ to, label }) => (
             <NavLink
               key={to}

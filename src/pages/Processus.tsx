@@ -82,11 +82,10 @@ function ScrollySection() {
 
   return (
     <section
-      className="border-t border-line grid items-start"
+      className="border-t border-line grid grid-cols-1 lg:grid-cols-2 items-start"
       style={{
         padding: '0 var(--pad-x)',
         paddingTop: 'clamp(40px,5vw,80px)',
-        gridTemplateColumns: '1fr 1fr',
         gap: 'clamp(40px,6vw,120px)',
       }}
     >

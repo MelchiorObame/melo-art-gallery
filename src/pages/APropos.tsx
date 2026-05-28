@@ -54,10 +54,9 @@ export default function APropos() {
     <main>
       {/* Hero */}
       <header
-        className="grid items-end"
+        className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-end"
         style={{
           padding: '140px var(--pad-x) clamp(40px,6vw,100px)',
-          gridTemplateColumns: '1.2fr 1fr',
           gap: 'clamp(40px,6vw,120px)',
         }}
       >
@@ -102,8 +101,7 @@ export default function APropos() {
       {/* Timeline */}
       <section style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
         <div
-          className="grid items-end mb-[clamp(40px,5vw,80px)]"
-          style={{ gridTemplateColumns: '1fr 2fr', gap: 'clamp(32px,4vw,80px)' }}
+          className="grid grid-cols-1 md:grid-cols-[1fr_2fr] items-end mb-[clamp(40px,5vw,80px)] gap-[clamp(32px,4vw,80px)]"
         >
           <Reveal>
             <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Parcours</span>
@@ -121,9 +119,8 @@ export default function APropos() {
               key={year}
               delay={i * 0.08}
               as="li"
-              className="grid items-start border-b border-line hover:pl-6 transition-all duration-[400ms]"
+              className="grid grid-cols-1 md:grid-cols-[160px_1fr] items-start border-b border-line md:hover:pl-6 transition-all duration-[400ms]"
               style={{
-                gridTemplateColumns: '160px 1fr',
                 gap: 'clamp(20px,4vw,60px)',
                 padding: 'clamp(32px,4vw,60px) 0',
               }}
@@ -150,7 +147,7 @@ export default function APropos() {
           </h2>
         </Reveal>
 
-        <div className="grid border-t border-l border-line" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 border-t border-l border-line">
           {DEMARCHE.map(({ n, title, desc }, i) => (
             <Reveal
               key={n}
@@ -198,7 +195,7 @@ export default function APropos() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-3 gap-[clamp(24px,3vw,56px)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[clamp(24px,3vw,56px)]">
           {MATERIEL.map(({ title, desc }, i) => (
             <Reveal key={title} delay={i * 0.07}>
               <article className="flex flex-col gap-4">
@@ -214,8 +211,7 @@ export default function APropos() {
       {/* Expositions & Presse */}
       <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
         <div
-          className="grid items-start mb-[clamp(32px,4vw,64px)]"
-          style={{ gridTemplateColumns: '1fr 2fr', gap: 'clamp(28px,4vw,80px)' }}
+          className="grid grid-cols-1 md:grid-cols-[1fr_2fr] items-start mb-[clamp(32px,4vw,64px)] gap-[clamp(28px,4vw,80px)]"
         >
           <Reveal>
             <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Expositions et presse</span>
@@ -233,8 +229,7 @@ export default function APropos() {
             {EXPOSITIONS_PRESSE.map(({ date, text }, i) => (
               <li
                 key={`${date}-${i}`}
-                className="grid items-start gap-6 py-6 border-b border-line"
-                style={{ gridTemplateColumns: '150px 1fr' }}
+                className="grid grid-cols-1 md:grid-cols-[150px_1fr] items-start gap-3 md:gap-6 py-6 border-b border-line"
               >
                 <span className="font-mono text-[11px] tracking-kicker uppercase text-accent pt-0.5">{date}</span>
                 <span className="text-[15px] leading-[1.7] text-fg-soft flex items-start gap-3">

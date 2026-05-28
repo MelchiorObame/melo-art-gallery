@@ -162,8 +162,7 @@ function FeaturedSection() {
 
       {/* Two-column layout */}
       <div
-        className="grid items-start"
-        style={{ gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,5vw,80px)' }}
+        className="grid grid-cols-1 lg:grid-cols-2 items-start gap-[clamp(40px,5vw,80px)]"
       >
         {/* ── Left : image + metadata below ── */}
         <div>
@@ -178,7 +177,7 @@ function FeaturedSection() {
 
           {/* Metadata grid below the image — small text */}
           <Reveal delay={0.1}>
-            <div className="grid grid-cols-4 gap-x-4 mt-5 pt-4 border-t border-line">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-3 mt-5 pt-4 border-t border-line">
               {FEATURED_META.map(([k, v]) => (
                 <div key={k} className="flex flex-col gap-1">
                   <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-fg-mute">
@@ -227,10 +226,9 @@ function FeaturedSection() {
 function BioSection() {
   return (
     <section
-      className="grid items-start border-t border-line bg-[#ddccb0]"
+      className="grid grid-cols-1 lg:grid-cols-[2fr_1.2fr] items-start border-t border-line bg-[#ddccb0]"
       style={{
         padding: 'clamp(52px,7vw,100px) var(--pad-x)',
-        gridTemplateColumns: '2fr 1.2fr',
         gap: 'clamp(32px,4vw,80px)',
       }}
     >
@@ -300,8 +298,8 @@ function GalleryPreviewSection() {
       {/* Masonry grid via CSS columns */}
       <Reveal>
         <div
-          className="gap-[clamp(16px,2vw,32px)]"
-          style={{ columnCount: 3, columnGap: 'clamp(16px,2vw,32px)' }}
+          className="columns-1 md:columns-2 xl:columns-3"
+          style={{ columnGap: 'clamp(16px,2vw,32px)' }}
         >
           {WORKS_PREVIEW.map((work) => (
             <div key={work.id} className="break-inside-avoid mb-[clamp(16px,2vw,32px)]">
@@ -332,8 +330,7 @@ function CommissionSection() {
       style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
     >
       <div
-        className="grid items-start"
-        style={{ gridTemplateColumns: '1.2fr 1fr', gap: 'clamp(40px,6vw,120px)' }}
+        className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-start gap-[clamp(40px,6vw,120px)]"
       >
         {/* Text */}
         <div>
@@ -368,8 +365,7 @@ function CommissionSection() {
             {STEPS.map((step, i) => (
               <li
                 key={i}
-                className="grid items-baseline gap-6 py-[22px] border-b border-line text-[22px]"
-                style={{ gridTemplateColumns: '60px 1fr' }}
+                className="grid grid-cols-[46px_1fr] md:grid-cols-[60px_1fr] items-baseline gap-4 md:gap-6 py-[22px] border-b border-line text-[18px] md:text-[22px]"
               >
                 <span className="font-mono text-[10px] tracking-kicker text-fg-soft">
                   {String(i + 1).padStart(2, '0')}
@@ -412,11 +408,10 @@ function SocialSection() {
 
       {/* Icon grid — N cards centered, well spaced */}
       <div
-        className="grid"
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mx-auto"
         style={{
-          gridTemplateColumns: `repeat(${SOCIAL_LINKS.length}, minmax(0, 300px))`,
           gap: 'clamp(16px, 2.5vw, 40px)',
-          justifyContent: 'center',
+          maxWidth: '980px',
         }}
       >
         {SOCIAL_LINKS.map(({ icon, label, handle, href }, i) => (

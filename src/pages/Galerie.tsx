@@ -146,8 +146,7 @@ export default function Galerie() {
         style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
       >
         <div
-          className="grid items-end mb-[clamp(40px,6vw,100px)]"
-          style={{ gridTemplateColumns: '1fr 2fr', gap: 'clamp(32px,4vw,80px)' }}
+          className="grid grid-cols-1 md:grid-cols-[1fr_2fr] items-end mb-[clamp(40px,6vw,100px)] gap-[clamp(32px,4vw,80px)]"
         >
           <div>
             <Reveal>
@@ -170,7 +169,7 @@ export default function Galerie() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-4 gap-[clamp(16px,2vw,32px)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[clamp(16px,2vw,32px)]">
           {DETAILS.map(({ label, sub }, i) => (
             <Reveal key={label} variant="clip" delay={i * 0.08}>
               <figure className="flex flex-col gap-3">
@@ -202,7 +201,7 @@ const GalleryMasonry = memo(function GalleryMasonry({
   onOpen: (index: number) => void
 }) {
   return (
-    <div style={{ columnCount: 3, columnGap: 'clamp(16px,2vw,32px)' }}>
+    <div className="columns-1 md:columns-2 xl:columns-3" style={{ columnGap: 'clamp(16px,2vw,32px)' }}>
       {works.map((work, i) => (
         <div key={work.id} className="break-inside-avoid mb-[clamp(16px,2vw,32px)]">
           <Reveal delay={(i % 6) * 0.06}>

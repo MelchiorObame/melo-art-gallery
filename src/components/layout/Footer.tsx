@@ -25,10 +25,9 @@ const legal = [
 export default function Footer() {
   return (
     <footer
-      className="border-t border-line bg-bg grid gap-10"
+      className="border-t border-line bg-bg grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10"
       style={{
         padding: '80px var(--pad-x) 40px',
-        gridTemplateColumns: '2fr 1fr 1fr 1fr',
       }}
     >
       {/* Brand */}
@@ -84,7 +83,7 @@ export default function Footer() {
       </Reveal>
 
       {/* Bottom bar */}
-      <div className="col-span-full flex flex-wrap justify-between items-end gap-4 pt-20 border-t border-line font-mono text-[11px] tracking-[0.14em] text-fg-soft">
+      <div className="col-span-full flex flex-col md:flex-row flex-wrap justify-between md:items-end gap-4 pt-20 border-t border-line font-mono text-[11px] tracking-[0.14em] text-fg-soft">
         <span>© Melo-Art. Tous droits réservés.</span>
 
         {/* Legal links */}
