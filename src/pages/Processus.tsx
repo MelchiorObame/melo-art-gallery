@@ -21,7 +21,7 @@ export default function Processus() {
   return (
     <main>
       {/* Intro */}
-      <header style={{ padding: '160px var(--pad-x) clamp(60px,7vw,100px)' }}>
+      <header style={{ padding: '108px var(--pad-x) clamp(40px,5vw,68px)' }}>
         <div className="flex justify-between items-center border-b border-line pb-5 mb-[clamp(40px,7vw,100px)]">
           <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">— Processus / Making-of</span>
           <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">9 étapes · ~ 42 heures</span>
@@ -54,7 +54,7 @@ export default function Processus() {
       {/* CTA */}
       <section
         className="border-t border-line text-center"
-        style={{ padding: 'clamp(80px,10vw,160px) var(--pad-x)' }}
+        style={{ padding: 'clamp(52px,6vw,100px) var(--pad-x)' }}
       >
         <Reveal>
           <h2 className="font-display font-light leading-[0.95]" style={{ fontSize: 'clamp(48px,8vw,140px)' }}>
@@ -195,7 +195,7 @@ function BeforeAfterSection() {
   }, [])
 
   return (
-    <section className="border-t border-line" style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+    <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
       <div
         className="grid items-end mb-[clamp(40px,5vw,80px)]"
         style={{ gridTemplateColumns: '1fr 2fr 1.5fr', gap: 'clamp(28px,4vw,80px)' }}
@@ -263,7 +263,7 @@ const VIDEOS = [
 
 function VideosSection() {
   return (
-    <section className="border-t border-line" style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+    <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
       <div
         className="grid items-end mb-[clamp(40px,5vw,80px)]"
         style={{ gridTemplateColumns: '1fr 2fr 1.5fr', gap: 'clamp(28px,4vw,80px)' }}

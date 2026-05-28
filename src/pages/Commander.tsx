@@ -74,7 +74,7 @@ export default function Commander() {
       />
 
       {/* Types */}
-      <section style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+      <section style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
         <div
           className="grid items-end mb-[clamp(40px,5vw,80px)]"
           style={{ gridTemplateColumns: '1fr 2fr', gap: 'clamp(24px,4vw,80px)' }}
@@ -105,7 +105,7 @@ export default function Commander() {
       <section
         className="border-t border-line grid items-start"
         style={{
-          padding: 'clamp(80px,12vw,160px) var(--pad-x)',
+          padding: 'clamp(52px,7vw,100px) var(--pad-x)',
           gridTemplateColumns: '1fr 1fr',
           gap: 'clamp(40px,6vw,120px)',
         }}
@@ -163,7 +163,7 @@ export default function Commander() {
       {/* Process steps */}
       <section
         className="border-t border-line"
-        style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}
+        style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
       >
         <div className="mb-[clamp(50px,6vw,100px)]">
           <Reveal>
@@ -193,7 +193,7 @@ export default function Commander() {
       <section
         className="border-t border-line grid items-start"
         style={{
-          padding: 'clamp(80px,12vw,160px) var(--pad-x)',
+          padding: 'clamp(52px,7vw,100px) var(--pad-x)',
           gridTemplateColumns: '1fr 1.2fr',
           gap: 'clamp(40px,6vw,120px)',
         }}
@@ -234,7 +234,7 @@ export default function Commander() {
       <section
         id="devis"
         className="border-t border-line bg-bg-soft"
-        style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}
+        style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
       >
         <div
           className="grid items-start"
@@ -366,7 +366,7 @@ function PageIntro({ kicker, subtitle, title, lede }: {
   lede:     string
 }) {
   return (
-    <header style={{ padding: '160px var(--pad-x) clamp(60px,7vw,100px)' }}>
+    <header style={{ padding: '108px var(--pad-x) clamp(40px,5vw,68px)' }}>
       <div className="flex justify-between items-center border-b border-line pb-5 mb-[clamp(40px,7vw,100px)]">
         <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">— {kicker}</span>
         <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">{subtitle}</span>

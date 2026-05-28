@@ -47,7 +47,7 @@ export default function Galerie() {
       {/* Page intro */}
       <header
         className="border-b border-line"
-        style={{ padding: '160px var(--pad-x) clamp(60px,7vw,100px)' }}
+        style={{ padding: '108px var(--pad-x) clamp(40px,5vw,68px)' }}
       >
         <div className="flex justify-between items-center border-b border-line pb-5 mb-[clamp(40px,7vw,100px)]">
           <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">— Galerie complète</span>
@@ -118,7 +118,7 @@ export default function Galerie() {
       {/* Études de détails */}
       <section
         className="border-t border-line"
-        style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}
+        style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
       >
         <div
           className="grid items-end mb-[clamp(40px,6vw,100px)]"

@@ -78,7 +78,7 @@ export default function APropos() {
       <Marquee items={['Patience', 'Précision', 'Présence', 'Lumière', 'Texture', 'Émotion']} />
 
       {/* Timeline */}
-      <section style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+      <section style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
         <div
           className="grid items-end mb-[clamp(40px,5vw,80px)]"
           style={{ gridTemplateColumns: '1fr 2fr', gap: 'clamp(32px,4vw,80px)' }}
@@ -117,7 +117,7 @@ export default function APropos() {
       </section>
 
       {/* Démarche */}
-      <section className="border-t border-line" style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+      <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
         <Reveal className="mb-[clamp(40px,5vw,80px)]">
           <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Démarche artistique</span>
           <h2
@@ -146,7 +146,7 @@ export default function APropos() {
       {/* Statement */}
       <section
         className="border-t border-line text-center"
-        style={{ padding: 'clamp(80px,12vw,180px) var(--pad-x)' }}
+        style={{ padding: 'clamp(52px,7vw,104px) var(--pad-x)' }}
       >
         <Reveal>
           <p
@@ -164,7 +164,7 @@ export default function APropos() {
       </section>
 
       {/* Matériel */}
-      <section className="border-t border-line" style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+      <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
         <Reveal className="mb-[clamp(40px,5vw,80px)]">
           <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Matériel de l'atelier</span>
           <h2
@@ -192,7 +192,7 @@ export default function APropos() {
       {/* CTA */}
       <section
         className="border-t border-line text-center"
-        style={{ padding: 'clamp(80px,10vw,160px) var(--pad-x)' }}
+        style={{ padding: 'clamp(52px,6vw,100px) var(--pad-x)' }}
       >
         <Reveal>
           <h2 className="font-display font-light leading-[0.95]" style={{ fontSize: 'clamp(48px,8vw,140px)' }}>

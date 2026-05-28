@@ -161,7 +161,7 @@ const FEATURED_META = [
 
 function FeaturedSection() {
   return (
-    <section style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+    <section style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
 
       {/* Label above */}
       <Reveal className="mb-10">
@@ -236,7 +236,7 @@ function BioSection() {
     <section
       className="grid items-start border-t border-line"
       style={{
-        padding: 'clamp(80px,12vw,160px) var(--pad-x)',
+        padding: 'clamp(52px,7vw,100px) var(--pad-x)',
         gridTemplateColumns: '1fr 2fr 1.2fr',
         gap: 'clamp(32px,4vw,80px)',
       }}
@@ -276,7 +276,7 @@ function BioSection() {
    ============================================================ */
 function GalleryPreviewSection() {
   return (
-    <section style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}>
+    <section style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
       {/* Header */}
       <div className="flex justify-between items-end gap-6 mb-[clamp(40px,5vw,80px)]">
         <div>
@@ -331,7 +331,7 @@ function CommissionSection() {
   return (
     <section
       className="border-t border-line"
-      style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}
+      style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
     >
       <div
         className="grid items-start"
@@ -393,7 +393,7 @@ function SocialSection() {
   return (
     <section
       className="border-t border-line"
-      style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}
+      style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
     >
       {/* Header */}
       <div className="flex justify-between items-end gap-8 mb-16">
