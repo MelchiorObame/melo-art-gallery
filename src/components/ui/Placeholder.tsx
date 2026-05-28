@@ -61,6 +61,7 @@ interface PlaceholderProps {
   className?:  string
   loading?: 'lazy' | 'eager'
   fetchPriority?: 'high' | 'low' | 'auto'
+  seedKey?: string
 }
 
 export default function Placeholder({
@@ -70,11 +71,12 @@ export default function Placeholder({
   className,
   loading = 'lazy',
   fetchPriority = 'low',
+  seedKey,
 }: PlaceholderProps) {
   const imageSrc = useMemo(() => {
-    const seed = `${label}|${description ?? ''}|${aspectRatio}`
+    const seed = seedKey ?? `${label}|${description ?? ''}|${aspectRatio}`
     return IMAGE_POOL[hashString(seed) % IMAGE_POOL.length]
-  }, [label, description, aspectRatio])
+  }, [label, description, aspectRatio, seedKey])
 
   const [displaySrc, setDisplaySrc] = useState(imageSrc)
 

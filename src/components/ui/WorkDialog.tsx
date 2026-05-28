@@ -61,6 +61,7 @@ export default function WorkDialog({
                   label={`n° ${work.id}`}
                   description={work.title}
                   aspectRatio={work.aspectRatio}
+                  seedKey={`work:${work.id}`}
                   className="h-full min-h-[58vh] md:min-h-[72vh]"
                   loading="eager"
                   fetchPriority="high"

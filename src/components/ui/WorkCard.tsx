@@ -28,6 +28,7 @@ export default function WorkCard({ work, onClick, className }: WorkCardProps) {
             label={`n° ${work.id}`}
             description={`${work.title}\n${work.size}`}
             aspectRatio={work.aspectRatio}
+            seedKey={`work:${work.id}`}
           />
         </div>
         {/* Status badge */}
