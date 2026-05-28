@@ -21,24 +21,42 @@ Site vitrine artistique pour présenter les oeuvres, le processus de création, 
 
 ## Installation
 
-1. Installer les dépendances:
-	 npm install
+Installer les dépendances:
+
+```bash
+npm install
+```
 
 ## Commandes disponibles
 
 - Lancer en développement:
-	npm run dev
+
+```bash
+npm run dev
+```
 
 - Générer le build de production:
-	npm run build
+
+```bash
+npm run build
+```
 
 - Prévisualiser le build en local:
-	npm run preview
+
+```bash
+npm run preview
+```
+
+- Lancer le lint:
+
+```bash
+npm run lint
+```
 
 ## À propos du lint
 
 Le script lint n'est pas encore configuré dans ce projet.
-Si vous souhaitez l'ajouter, vous pouvez intégrer ESLint puis créer un script npm run lint.
+La commande ci-dessus est fournie pour la suite, mais elle ne fonctionnera qu'après l'ajout d'ESLint et d'un script lint dans package.json.
 
 ## Build production
 
