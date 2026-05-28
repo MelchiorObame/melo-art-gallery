@@ -91,7 +91,7 @@ function HeroSection() {
           du visage — le regard, la peau, la lumière — jusqu'à ce que
           le dessin respire.
         </p>
-        <div className="flex flex-wrap gap-3.5">
+        <div className="flex items-center gap-3.5">
           <Btn to="/galerie" filled>
             Voir la galerie <FiArrowRight />
           </Btn>

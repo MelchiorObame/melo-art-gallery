@@ -25,7 +25,7 @@ export default function Btn({
 }: BtnProps) {
   const base = cn(
     'inline-flex items-center gap-3.5 px-6 py-3.5',
-    'font-mono text-[11px] tracking-kicker uppercase',
+    'font-mono text-[11px] tracking-kicker uppercase whitespace-nowrap',
     'border border-fg transition-colors duration-[400ms]',
     'cursor-pointer select-none',
     filled
