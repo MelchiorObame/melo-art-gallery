@@ -51,7 +51,7 @@ function HeroSection() {
       style={{ padding: '120px var(--pad-x) 60px', gap: 'clamp(32px, 5vh, 64px)' }}
     >
       {/* 1 — Top bar */}
-      <div className="flex justify-between items-center shrink-0">
+      <div className="flex flex-wrap justify-between items-center gap-2.5 shrink-0">
         <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">
           Atelier de portrait
         </span>
@@ -80,7 +80,7 @@ function HeroSection() {
           du visage — le regard, la peau, la lumière — jusqu'à ce que
           le dessin respire.
         </p>
-        <div className="flex items-center gap-3.5">
+        <div className="flex flex-wrap items-center gap-3.5">
           <Btn to="/galerie" filled>
             Voir la galerie <FiArrowRight />
           </Btn>
@@ -89,7 +89,7 @@ function HeroSection() {
       </Reveal>
 
       {/* 4 — Floor */}
-      <div className="flex justify-between items-end font-mono text-[10px] tracking-[0.18em] uppercase text-fg-soft relative z-[3] shrink-0">
+      <div className="flex flex-wrap justify-between items-end gap-3 font-mono text-[10px] tracking-[0.18em] uppercase text-fg-soft relative z-[3] shrink-0">
         <div className="inline-flex items-center gap-3.5">
           <div className="w-[60px] h-px bg-fg-soft relative overflow-hidden">
             <motion.div
@@ -274,7 +274,7 @@ function GalleryPreviewSection() {
   return (
     <section style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
       {/* Header */}
-      <div className="flex justify-between items-end gap-6 mb-[clamp(40px,5vw,80px)]">
+      <div className="flex flex-wrap justify-between items-end gap-6 mb-[clamp(40px,5vw,80px)]">
         <div>
           <Reveal>
             <SectionLabel>Aperçu de la galerie</SectionLabel>
@@ -390,7 +390,7 @@ function SocialSection() {
       style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}
     >
       {/* Header */}
-      <div className="flex justify-between items-end gap-8 mb-16">
+      <div className="flex flex-wrap justify-between items-end gap-8 mb-16">
         <div>
           <Reveal>
             <SectionLabel>Suivre l'atelier</SectionLabel>
