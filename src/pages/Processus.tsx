@@ -35,7 +35,7 @@ export default function Processus() {
               { text: 'au dessin fini.', className: 'italic text-fg-soft' },
             ]}
             className="font-display font-light leading-[0.92] mb-10"
-            style={{ fontSize: 'clamp(60px,12vw,200px)', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(64px,9vw,160px)', letterSpacing: '-0.02em' }}
           />
         </Reveal>
         <Reveal delay={0.1}>

@@ -55,7 +55,7 @@ export default function APropos() {
                 { text: 'la présence.', className: 'italic text-accent' },
               ]}
               className="font-display font-light leading-[0.9] my-8"
-              style={{ fontSize: 'clamp(56px,10vw,180px)' }}
+              style={{ fontSize: 'clamp(64px,9vw,160px)', letterSpacing: '-0.02em' }}
             />
           </Reveal>
           <Reveal delay={0.16}>

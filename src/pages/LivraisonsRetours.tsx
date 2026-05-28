@@ -119,7 +119,7 @@ export default function LivraisonsRetours() {
             { text: '& retours.' },
           ]}
           className="font-display font-light leading-[0.92] mt-6 mb-5"
-          style={{ fontSize: 'clamp(48px,8vw,120px)', letterSpacing: '-0.02em' }}
+          style={{ fontSize: 'clamp(64px,9vw,160px)', letterSpacing: '-0.02em' }}
         />
         <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-fg-mute">
           Dernière mise à jour : {LAST_UPDATE}
