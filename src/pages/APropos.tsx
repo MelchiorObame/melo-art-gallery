@@ -30,6 +30,25 @@ const MATERIEL = [
   { title: 'Table à dessin',   desc: 'Plan inclinable, éclairage LED neutre (5500K) pour reproduire fidèlement les valeurs.' },
 ]
 
+const EXPOSITIONS_PRESSE = [
+  {
+    date: 'Mars 2024',
+    text: 'Exposition collective, Paris 11e — sélection de trois portraits graphite autour du thème "Présences".',
+  },
+  {
+    date: 'Novembre 2024',
+    text: 'Interview invitée sur une plateforme d\'art francophone à propos du processus hyperréaliste et des commandes privées.',
+  },
+  {
+    date: 'Mai 2025',
+    text: 'Participation à un accrochage indépendant à Bruxelles — série d\'études de regards et textures.',
+  },
+  {
+    date: 'Février 2026',
+    text: 'Présentation d\'atelier ouverte au public à Paris : démonstration en direct et échange autour du portrait sur commande.',
+  },
+]
+
 export default function APropos() {
   return (
     <main>
@@ -190,6 +209,42 @@ export default function APropos() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* Expositions & Presse */}
+      <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
+        <div
+          className="grid items-start mb-[clamp(32px,4vw,64px)]"
+          style={{ gridTemplateColumns: '1fr 2fr', gap: 'clamp(28px,4vw,80px)' }}
+        >
+          <Reveal>
+            <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Expositions et presse</span>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="font-display font-light leading-[0.95]" style={{ fontSize: 'clamp(40px,5vw,82px)' }}>
+              Expositions,<br />articles et
+              <em className="italic text-fg-soft"> interventions</em>.
+            </h2>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.08}>
+          <ul className="border-t border-line">
+            {EXPOSITIONS_PRESSE.map(({ date, text }, i) => (
+              <li
+                key={`${date}-${i}`}
+                className="grid items-start gap-6 py-6 border-b border-line"
+                style={{ gridTemplateColumns: '150px 1fr' }}
+              >
+                <span className="font-mono text-[11px] tracking-kicker uppercase text-accent pt-0.5">{date}</span>
+                <span className="text-[15px] leading-[1.7] text-fg-soft flex items-start gap-3">
+                  <span className="text-accent mt-[6px] shrink-0 text-[8px]">◆</span>
+                  {text}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </section>
 
       {/* CTA */}
