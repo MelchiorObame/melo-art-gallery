@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { FiArrowRight, FiArrowUpRight, FiInstagram } from 'react-icons/fi'
+import { SiTiktok, SiYoutube } from 'react-icons/si'
 import Reveal from '../components/ui/Reveal'
 import Placeholder from '../components/ui/Placeholder'
 import Marquee from '../components/ui/Marquee'
@@ -14,11 +15,9 @@ const MARQUEE_ITEMS = [
 ]
 
 const SOCIAL_LINKS = [
-  { n: '01', label: 'Instagram', handle: '@melo.art' },
-  { n: '02', label: 'TikTok',    handle: '@melo.art' },
-  { n: '03', label: 'YouTube',   handle: 'Melo Art'  },
-  { n: '04', label: 'Behance',   handle: '/melo'     },
-  { n: '05', label: 'Pinterest', handle: '/meloart'  },
+  { icon: <FiInstagram size={28} />, label: 'Instagram', handle: '@ledessin_art', href: '#' },
+  { icon: <SiTiktok    size={24} />, label: 'TikTok',    handle: '@melo.art', href: '#' },
+  { icon: <SiYoutube   size={28} />, label: 'YouTube',   handle: 'Melo Art',  href: '#' },
 ]
 
 export default function Home() {
@@ -393,46 +392,67 @@ function CommissionSection() {
 function SocialSection() {
   return (
     <section
-      className="border-t border-line grid"
-      style={{
-        padding: 'clamp(80px,12vw,160px) var(--pad-x)',
-        gridTemplateColumns: '1fr 3fr',
-        gap: 'clamp(32px,5vw,80px)',
-      }}
+      className="border-t border-line"
+      style={{ padding: 'clamp(80px,12vw,160px) var(--pad-x)' }}
     >
-      <Reveal>
-        <SectionLabel>Suivre l'atelier</SectionLabel>
-      </Reveal>
-
-      <Reveal delay={0.04}>
-        <h2
-          className="font-display font-light leading-[0.95] mb-14"
-          style={{ fontSize: 'clamp(40px,5.5vw,96px)' }}
-        >
-          L'atelier vit aussi<br />en <em className="italic">vidéo</em>.
-        </h2>
-      </Reveal>
-
-      {/* Social list */}
-      <ul className="col-span-full border-t border-line">
-        {SOCIAL_LINKS.map(({ n, label, handle }, i) => (
-          <Reveal key={label} delay={i * 0.06} as="li" className="border-b border-line">
-            <a
-              href="#"
-              className="group grid items-center py-7 font-display font-light transition-all duration-500 hover:pl-[clamp(16px,3vw,48px)] hover:text-accent"
-              style={{
-                fontSize: 'clamp(28px,4vw,64px)',
-                gridTemplateColumns: '80px 1fr 1fr 40px',
-              }}
+      {/* Header */}
+      <div className="flex justify-between items-end gap-8 mb-16">
+        <div>
+          <Reveal>
+            <SectionLabel>Suivre l'atelier</SectionLabel>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2
+              className="font-display font-light leading-[0.95] mt-6"
+              style={{ fontSize: 'clamp(36px,5vw,80px)' }}
             >
-              <span className="font-mono text-[11px] tracking-kicker text-fg-soft">{n}</span>
-              <span>{label}</span>
-              <span className="font-display italic text-[0.55em] text-fg-soft text-right">{handle}</span>
-              <FiArrowUpRight className="text-[18px] text-fg-soft ml-auto transition-transform duration-[400ms] group-hover:translate-x-2 group-hover:-translate-y-2 group-hover:text-accent" />
+              L'atelier vit aussi<br />en <em className="italic">vidéo</em>.
+            </h2>
+          </Reveal>
+        </div>
+      </div>
+
+      {/* Icon grid — N cards centered, well spaced */}
+      <div
+        className="grid"
+        style={{
+          gridTemplateColumns: `repeat(${SOCIAL_LINKS.length}, minmax(0, 300px))`,
+          gap: 'clamp(16px, 2.5vw, 40px)',
+          justifyContent: 'center',
+        }}
+      >
+        {SOCIAL_LINKS.map(({ icon, label, handle, href }, i) => (
+          <Reveal key={label} delay={i * 0.07}>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-5 border border-line px-6 py-8 hover:border-fg hover:bg-bg-soft transition-all duration-300"
+            >
+              {/* Icon */}
+              <span className="text-fg-soft group-hover:text-fg transition-colors duration-300">
+                {icon}
+              </span>
+
+              {/* Platform name + handle */}
+              <div className="flex flex-col items-center gap-1 text-center">
+                <span className="font-mono text-[11px] tracking-kicker uppercase text-fg">
+                  {label}
+                </span>
+                <span className="font-display italic text-[13px] text-fg-soft">
+                  {handle}
+                </span>
+              </div>
+
+              {/* Arrow */}
+              <FiArrowUpRight
+                size={14}
+                className="text-fg-mute group-hover:text-accent transition-colors duration-300 self-end"
+              />
             </a>
           </Reveal>
         ))}
-      </ul>
+      </div>
     </section>
   )
 }

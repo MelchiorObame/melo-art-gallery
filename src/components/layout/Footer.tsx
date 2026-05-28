@@ -14,8 +14,6 @@ const social = [
   { href: '#', icon: <FiInstagram />, label: 'Instagram' },
   { href: '#', icon: <SiTiktok />,    label: 'TikTok'    },
   { href: '#', icon: <SiYoutube />,   label: 'YouTube'   },
-  { href: '#', icon: <SiBehance />,   label: 'Behance'   },
-  { href: '#', icon: <SiPinterest />, label: 'Pinterest' },
 ]
 
 export default function Footer() {
@@ -74,15 +72,15 @@ export default function Footer() {
         <h4 className="font-mono text-[10px] tracking-[0.2em] uppercase text-fg-soft mb-[18px]">Contact</h4>
         <ul className="space-y-2.5 text-sm text-fg-soft">
           <li>melo@melo-art.fr</li>
-          <li>+33 (0)6 00 00 00 00</li>
+          <li>+33 (0)6 29 18 81 11</li>
           <li>Sur rendez-vous</li>
         </ul>
       </Reveal>
 
       {/* Bottom bar */}
       <div className="col-span-full flex justify-between items-end pt-20 font-mono text-[11px] tracking-[0.14em] text-fg-soft">
-        <span>© MMXXVI — Melo. Tous droits réservés.</span>
-        <span>Conçu à l'atelier, ligne par ligne.</span>
+        <span>© Melo-Art. Tous droits réservés.</span>
+        <span>Conçu à l'atelier, avec amour.</span>
       </div>
     </footer>
   )
