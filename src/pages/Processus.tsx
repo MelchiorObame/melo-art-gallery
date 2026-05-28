@@ -201,8 +201,7 @@ function BeforeAfterSection() {
   return (
     <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
       <div
-        className="grid items-end mb-[clamp(40px,5vw,80px)]"
-        style={{ gridTemplateColumns: '1fr 2fr 1.5fr', gap: 'clamp(28px,4vw,80px)' }}
+        className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1.5fr] items-end mb-[clamp(40px,5vw,80px)] gap-[clamp(28px,4vw,80px)]"
       >
         <Reveal>
           <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Avant / après</span>
@@ -269,15 +268,14 @@ function VideosSection() {
   return (
     <section className="border-t border-line" style={{ padding: 'clamp(52px,7vw,100px) var(--pad-x)' }}>
       <div
-        className="grid items-end mb-[clamp(40px,5vw,80px)]"
-        style={{ gridTemplateColumns: '1fr 2fr 1.5fr', gap: 'clamp(28px,4vw,80px)' }}
+        className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1.5fr] items-end mb-[clamp(40px,5vw,80px)] gap-[clamp(28px,4vw,80px)]"
       >
         <Reveal>
           <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Time-lapse / Réseaux</span>
         </Reveal>
         <Reveal delay={0.04}>
           <h2 className="font-display font-light leading-[0.95]" style={{ fontSize: 'clamp(48px,7vw,120px)' }}>
-            Voir le crayon<br /><em className="italic text-fg-soft">en mouvement</em>.
+            Voir le crayon <em className="italic text-fg-soft">en mouvement</em>.
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
@@ -287,7 +285,7 @@ function VideosSection() {
         </Reveal>
       </div>
 
-      <div className="grid grid-cols-3 gap-[clamp(20px,3vw,48px)]">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[clamp(20px,3vw,48px)]">
         {VIDEOS.map(({ platform, title, desc }, i) => (
           <Reveal key={platform} variant="clip" delay={i * 0.1}>
             <figure className="group flex flex-col gap-4">

@@ -53,7 +53,7 @@ function HeroSection() {
       {/* 1 — Top bar */}
       <div className="flex justify-between items-center shrink-0">
         <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">
-          Melo — Atelier de portrait
+          Atelier de portrait
         </span>
         <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft inline-flex items-center gap-2.5">
           <motion.span
