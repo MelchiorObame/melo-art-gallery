@@ -20,17 +20,23 @@ export default function Nav() {
         <motion.div className="h-full bg-fg origin-left" style={{ scaleX }} />
       </div>
 
-      {/* Nav — mix-blend-mode:difference so it inverts over images */}
+      {/* Nav — frosted glass */}
       <nav
-        className="fixed top-0 left-0 right-0 z-[80] flex items-center justify-between nav-blend"
-        style={{ padding: '22px var(--pad-x)' }}
+        className="fixed top-0 left-0 right-0 z-[80] flex items-center justify-between text-fg"
+        style={{
+          padding: '20px var(--pad-x)',
+          background: 'rgba(243, 237, 227, 0.80)',
+          backdropFilter: 'blur(24px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(160%)',
+          borderBottom: '1px solid rgba(43, 37, 32, 0.08)',
+        }}
         aria-label="Principal"
       >
         <NavLink
           to="/"
-          className="font-display text-[22px] tracking-[0.04em]"
+          className="font-display text-[22px] tracking-[0.04em] text-fg"
         >
-          Melo<sup className="font-mono text-[9px] tracking-[0.2em] ml-1.5 opacity-70">ART</sup>
+          Melo<sup className="font-mono text-[9px] tracking-[0.2em] ml-1.5 opacity-60">ART</sup>
         </NavLink>
 
         <div className="flex gap-8 font-mono text-[11px] tracking-wide uppercase">
@@ -40,7 +46,11 @@ export default function Nav() {
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `relative py-1 transition-opacity duration-300 hover:opacity-100 ${isActive ? 'opacity-100 after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-px after:bg-current' : 'opacity-80'}`
+                `relative py-1 text-fg transition-opacity duration-300 hover:opacity-100 ${
+                  isActive
+                    ? 'opacity-100 after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-px after:bg-fg'
+                    : 'opacity-50'
+                }`
               }
             >
               {label}
