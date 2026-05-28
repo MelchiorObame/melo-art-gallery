@@ -1,16 +1,17 @@
 import { Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import { routeLoaders } from './lib/routePreload'
 
-const Home = lazy(() => import('./pages/Home'))
-const Galerie = lazy(() => import('./pages/Galerie'))
-const Commander = lazy(() => import('./pages/Commander'))
-const APropos = lazy(() => import('./pages/APropos'))
-const Processus = lazy(() => import('./pages/Processus'))
-const Contact = lazy(() => import('./pages/Contact'))
-const LivraisonsRetours = lazy(() => import('./pages/LivraisonsRetours'))
-const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'))
-const TermesConditions = lazy(() => import('./pages/TermesConditions'))
+const Home = lazy(routeLoaders.home)
+const Galerie = lazy(routeLoaders.galerie)
+const Commander = lazy(routeLoaders.commander)
+const APropos = lazy(routeLoaders.aPropos)
+const Processus = lazy(routeLoaders.processus)
+const Contact = lazy(routeLoaders.contact)
+const LivraisonsRetours = lazy(routeLoaders.livraisonsRetours)
+const PolitiqueConfidentialite = lazy(routeLoaders.politiqueConfidentialite)
+const TermesConditions = lazy(routeLoaders.termesConditions)
 
 export default function App() {
   return (

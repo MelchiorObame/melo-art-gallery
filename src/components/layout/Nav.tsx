@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { preloadRoute } from '../../lib/routePreload'
 
 const links = [
   { to: '/',          label: 'Accueil'  },
@@ -9,6 +10,10 @@ const links = [
   { to: '/a-propos',  label: 'À propos' },
   { to: '/contact',   label: 'Contact'  },
 ]
+
+function handlePrefetch(path: string) {
+  preloadRoute(path)
+}
 
 export default function Nav() {
   const { scrollYProgress } = useScroll()
@@ -43,6 +48,9 @@ export default function Nav() {
               key={to}
               to={to}
               end={to === '/'}
+              onMouseEnter={() => handlePrefetch(to)}
+              onFocus={() => handlePrefetch(to)}
+              onTouchStart={() => handlePrefetch(to)}
               className={({ isActive }) =>
                 `relative py-1 text-fg transition-opacity duration-300 hover:opacity-100 ${
                   isActive
