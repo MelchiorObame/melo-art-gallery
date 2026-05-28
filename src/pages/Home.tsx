@@ -5,6 +5,7 @@ import Placeholder from '../components/ui/Placeholder'
 import Marquee from '../components/ui/Marquee'
 import WorkCard from '../components/ui/WorkCard'
 import Btn from '../components/ui/Btn'
+import SectionLabel from '../components/ui/SectionLabel'
 import { WORKS_PREVIEW } from '../data/works'
 
 const MARQUEE_ITEMS = [
@@ -166,9 +167,7 @@ function FeaturedSection() {
       {/* Meta */}
       <div className="flex flex-col gap-12" style={{ gridArea: 'meta' }}>
         <Reveal>
-          <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">
-            — Œuvre sélectionnée
-          </span>
+          <SectionLabel>Œuvre sélectionnée</SectionLabel>
         </Reveal>
         <Reveal delay={0.05}>
           <div className="grid grid-cols-2 gap-7">
@@ -235,7 +234,7 @@ function BioSection() {
       }}
     >
       <Reveal>
-        <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">— Atelier</span>
+        <SectionLabel>Atelier</SectionLabel>
       </Reveal>
 
       <Reveal delay={0.06} className="flex flex-col">
@@ -274,9 +273,7 @@ function GalleryPreviewSection() {
       <div className="flex justify-between items-end gap-6 mb-[clamp(40px,5vw,80px)]">
         <div>
           <Reveal>
-            <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">
-              — Aperçu de la galerie
-            </span>
+            <SectionLabel>Aperçu de la galerie</SectionLabel>
           </Reveal>
           <Reveal delay={0.05}>
             <h2
@@ -335,9 +332,7 @@ function CommissionSection() {
         {/* Text */}
         <div>
           <Reveal>
-            <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">
-              — Commandes personnalisées
-            </span>
+            <SectionLabel>Commandes personnalisées</SectionLabel>
           </Reveal>
           <Reveal delay={0.04}>
             <h2
@@ -397,9 +392,7 @@ function SocialSection() {
       }}
     >
       <Reveal>
-        <span className="font-mono text-[10px] tracking-eyebrow uppercase text-fg-soft">
-          — Suivre l'atelier
-        </span>
+        <SectionLabel>Suivre l'atelier</SectionLabel>
       </Reveal>
 
       <Reveal delay={0.04}>
