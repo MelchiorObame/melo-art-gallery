@@ -237,29 +237,33 @@ function BioSection() {
       className="grid items-start border-t border-line"
       style={{
         padding: 'clamp(52px,7vw,100px) var(--pad-x)',
-        gridTemplateColumns: '1fr 2fr 1.2fr',
+        gridTemplateColumns: '2fr 1.2fr',
         gap: 'clamp(32px,4vw,80px)',
       }}
     >
-      <Reveal>
-        <SectionLabel>Atelier</SectionLabel>
-      </Reveal>
+      {/* Left — label directly above the text */}
+      <div className="flex flex-col gap-6">
+        <Reveal>
+          <SectionLabel>Atelier</SectionLabel>
+        </Reveal>
 
-      <Reveal delay={0.06} className="flex flex-col">
-        <p
-          className="font-display font-light leading-[1.08]"
-          style={{ fontSize: 'clamp(32px,3.6vw,56px)', letterSpacing: '-0.01em' }}
-        >
-          Je suis <em className="italic text-accent">Melo</em>, dessinateur portraitiste
-          spécialisé dans l'hyperréalisme. Mon travail cherche à
-          capturer non seulement les traits d'un visage, mais aussi
-          la présence, l'émotion et l'histoire de chaque personne.
-        </p>
-        <Btn to="/a-propos" className="mt-10 self-start">
-          À propos de l'artiste <FiArrowRight />
-        </Btn>
-      </Reveal>
+        <Reveal delay={0.06} className="flex flex-col">
+          <p
+            className="font-display font-light leading-[1.08]"
+            style={{ fontSize: 'clamp(32px,3.6vw,56px)', letterSpacing: '-0.01em' }}
+          >
+            Je suis <em className="italic text-accent">Melo</em>, dessinateur portraitiste
+            spécialisé dans l'hyperréalisme. Mon travail cherche à
+            capturer non seulement les traits d'un visage, mais aussi
+            la présence, l'émotion et l'histoire de chaque personne.
+          </p>
+          <Btn to="/a-propos" className="mt-10 self-start">
+            À propos de l'artiste <FiArrowRight />
+          </Btn>
+        </Reveal>
+      </div>
 
+      {/* Right — photo */}
       <Reveal variant="clip" delay={0.1}>
         <Placeholder
           label="portrait Melo"
