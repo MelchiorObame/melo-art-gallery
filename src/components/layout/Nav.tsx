@@ -7,6 +7,7 @@ const links = [
   { to: '/commander', label: 'Commander'},
   { to: '/processus', label: 'Processus'},
   { to: '/a-propos',  label: 'À propos' },
+  { to: '/contact',   label: 'Contact'  },
 ]
 
 export default function Nav() {
