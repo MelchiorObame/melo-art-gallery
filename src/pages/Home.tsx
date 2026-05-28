@@ -116,34 +116,35 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Portrait — direct child of <header> (which is `relative`), so absolute works correctly */}
-      <Reveal
-        variant="clip"
-        delay={0.1}
+      {/* Portrait — direct child of <header> (which is `relative`).
+          The outer div handles position; Reveal handles only the clip animation. */}
+      <div
         className="absolute z-[1] hidden md:block"
         style={{
           top: '14vh',
           right: 'var(--pad-x)',
-          width: 'clamp(200px, 30vw, 420px)',
-        } as React.CSSProperties}
+          width: 'clamp(220px, 30vw, 420px)',
+        }}
       >
-        <figure>
-          <Placeholder
-            label="œuvre n° 014"
-            description="portrait principal — format vertical"
-            aspectRatio="3/4"
-          />
-          <figcaption
-            className="grid gap-4 items-baseline mt-3.5 font-mono text-[10px] tracking-[0.14em] uppercase text-fg-soft"
-            style={{ gridTemplateColumns: 'auto 1fr' }}
-          >
-            <span>N° 014</span>
-            <span className="font-display not-italic text-[13px] tracking-normal normal-case text-fg truncate">
-              « Regard profond »
-            </span>
-          </figcaption>
-        </figure>
-      </Reveal>
+        <Reveal variant="clip" delay={0.1}>
+          <figure>
+            <Placeholder
+              label="œuvre n° 014"
+              description="portrait principal — format vertical"
+              aspectRatio="3/4"
+            />
+            <figcaption
+              className="grid gap-4 items-baseline mt-3.5 font-mono text-[10px] tracking-[0.14em] uppercase text-fg-soft"
+              style={{ gridTemplateColumns: 'auto 1fr' }}
+            >
+              <span>N° 014</span>
+              <span className="font-display not-italic text-[13px] tracking-normal normal-case text-fg truncate">
+                « Regard profond »
+              </span>
+            </figcaption>
+          </figure>
+        </Reveal>
+      </div>
     </header>
   )
 }

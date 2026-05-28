@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import type { ReactNode, ElementType } from 'react'
+import type { CSSProperties, ReactNode, ElementType } from 'react'
 import { cn } from '../../lib/utils'
 
 type Variant = 'fade' | 'clip' | 'rise'
@@ -26,11 +26,12 @@ const durations: Record<Variant, number> = {
 }
 
 interface RevealProps {
-  children:  ReactNode
-  delay?:    number
-  variant?:  Variant
+  children:   ReactNode
+  delay?:     number
+  variant?:   Variant
   className?: string
-  as?:       ElementType
+  style?:     CSSProperties
+  as?:        ElementType
 }
 
 export default function Reveal({
@@ -38,6 +39,7 @@ export default function Reveal({
   delay   = 0,
   variant = 'fade',
   className,
+  style,
   as: Tag = 'div',
 }: RevealProps) {
   const MotionTag = motion(Tag as 'div')
@@ -45,6 +47,7 @@ export default function Reveal({
   return (
     <MotionTag
       className={cn(className)}
+      style={style}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-8% 0px' }}
