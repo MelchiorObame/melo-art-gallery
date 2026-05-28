@@ -1,5 +1,6 @@
 import { FiArrowRight } from 'react-icons/fi'
 import Reveal from '../components/ui/Reveal'
+import AnimatedTitle from '../components/ui/AnimatedTitle'
 import Placeholder from '../components/ui/Placeholder'
 import Marquee from '../components/ui/Marquee'
 import Btn from '../components/ui/Btn'
@@ -46,14 +47,16 @@ export default function APropos() {
             <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">— L'artiste</span>
           </Reveal>
           <Reveal delay={0.08}>
-            <h1
+            <AnimatedTitle
+              as="h1"
+              lines={[
+                { text: "L'artiste," },
+                { text: 'le geste,' },
+                { text: 'la présence.', className: 'italic text-accent' },
+              ]}
               className="font-display font-light leading-[0.9] my-8"
               style={{ fontSize: 'clamp(56px,10vw,180px)' }}
-            >
-              <em className="italic text-accent">L'artiste,</em><br />
-              le geste,<br />
-              la présence.
-            </h1>
+            />
           </Reveal>
           <Reveal delay={0.16}>
             <p className="font-display font-light italic text-[clamp(20px,1.6vw,26px)] text-fg-soft leading-[1.45] max-w-[540px]">

@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { FiArrowRight } from 'react-icons/fi'
 import Reveal from '../components/ui/Reveal'
+import AnimatedTitle from '../components/ui/AnimatedTitle'
 import Placeholder from '../components/ui/Placeholder'
 import Btn from '../components/ui/Btn'
 
@@ -27,12 +28,15 @@ export default function Processus() {
           <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">9 étapes · ~ 42 heures</span>
         </div>
         <Reveal>
-          <h1
+          <AnimatedTitle
+            as="h1"
+            lines={[
+              { text: 'De la photo' },
+              { text: 'au dessin fini.', className: 'italic text-fg-soft' },
+            ]}
             className="font-display font-light leading-[0.92] mb-10"
             style={{ fontSize: 'clamp(60px,12vw,200px)', letterSpacing: '-0.02em' }}
-          >
-            De la photo<br />au <em className="italic text-fg-soft">dessin fini</em>.
-          </h1>
+          />
         </Reveal>
         <Reveal delay={0.1}>
           <p className="font-display font-light italic text-[clamp(20px,1.6vw,26px)] text-fg-soft leading-[1.45] max-w-[620px]">

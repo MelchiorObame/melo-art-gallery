@@ -1,5 +1,7 @@
 const LAST_UPDATE = '15 janvier 2025'
 
+import AnimatedTitle from '../components/ui/AnimatedTitle'
+
 const sections = [
   {
     id: 'definitions',
@@ -110,12 +112,15 @@ export default function LivraisonsRetours() {
         <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-fg-soft">
           Informations légales
         </span>
-        <h1
+        <AnimatedTitle
+          as="h1"
+          lines={[
+            { text: 'Livraisons' },
+            { text: '& retours.' },
+          ]}
           className="font-display font-light leading-[0.92] mt-6 mb-5"
           style={{ fontSize: 'clamp(48px,8vw,120px)', letterSpacing: '-0.02em' }}
-        >
-          Livraisons<br />&amp; retours.
-        </h1>
+        />
         <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-fg-mute">
           Dernière mise à jour : {LAST_UPDATE}
         </p>

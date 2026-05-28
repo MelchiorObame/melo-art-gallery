@@ -1,5 +1,7 @@
 const LAST_UPDATE = '28 mai 2026'
 
+import AnimatedTitle from '../components/ui/AnimatedTitle'
+
 interface Block {
   subtitle?: string
   text?: string
@@ -192,12 +194,15 @@ export default function PolitiqueConfidentialite() {
         <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-fg-soft">
           Informations legales
         </span>
-        <h1
+        <AnimatedTitle
+          as="h1"
+          lines={[
+            { text: 'Politique de' },
+            { text: 'confidentialite.' },
+          ]}
           className="font-display font-light leading-[0.92] mt-6 mb-5"
           style={{ fontSize: 'clamp(48px,8vw,120px)', letterSpacing: '-0.02em' }}
-        >
-          Politique de<br />confidentialite.
-        </h1>
+        />
         <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-fg-mute">
           Derniere mise a jour : {LAST_UPDATE}
         </p>

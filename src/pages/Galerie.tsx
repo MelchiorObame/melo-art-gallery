@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Reveal from '../components/ui/Reveal'
+import AnimatedTitle from '../components/ui/AnimatedTitle'
 import WorkCard from '../components/ui/WorkCard'
 import WorkDialog from '../components/ui/WorkDialog'
 import Placeholder from '../components/ui/Placeholder'
@@ -56,12 +57,15 @@ export default function Galerie() {
           </span>
         </div>
         <Reveal>
-          <h1
+          <AnimatedTitle
+            as="h1"
+            lines={[
+              { text: 'Portraits.', className: 'italic text-fg-soft' },
+              { text: 'Une archive vivante.' },
+            ]}
             className="font-display font-light leading-[0.92] mb-10"
             style={{ fontSize: 'clamp(60px,12vw,200px)', letterSpacing: '-0.02em' }}
-          >
-            <em className="italic text-fg-soft">Portraits.</em><br />Une archive vivante.
-          </h1>
+          />
         </Reveal>
         <Reveal delay={0.1}>
           <p className="font-display font-light text-[clamp(20px,1.6vw,26px)] italic text-fg-soft leading-[1.45] max-w-[620px]">

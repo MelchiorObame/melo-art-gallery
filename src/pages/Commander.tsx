@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { FiArrowRight, FiCheck, FiUpload, FiFile } from 'react-icons/fi'
+import { FiArrowRight, FiUpload, FiFile } from 'react-icons/fi'
 import Reveal from '../components/ui/Reveal'
+import AnimatedTitle from '../components/ui/AnimatedTitle'
 import Placeholder from '../components/ui/Placeholder'
 import Btn from '../components/ui/Btn'
 
@@ -73,7 +74,10 @@ export default function Commander() {
       <PageIntro
         kicker="Commander"
         subtitle="Réponse sous 48 h · Devis personnalisé"
-        title={<>Faire dessiner<br />un <em className="italic text-fg-soft">portrait</em>.</>}
+        titleLines={[
+          { text: 'Faire dessiner' },
+          { text: 'un portrait.', className: 'italic text-fg-soft' },
+        ]}
         lede="Pour un cadeau, un souvenir familial, un hommage ou une décoration personnelle — je réalise des portraits uniques à partir de vos photos de référence."
       />
 
@@ -400,10 +404,10 @@ function FormField({
 }
 
 /* ---- Shared PageIntro ---- */
-function PageIntro({ kicker, subtitle, title, lede }: {
+function PageIntro({ kicker, subtitle, titleLines, lede }: {
   kicker:   string
   subtitle: string
-  title:    React.ReactNode
+  titleLines: { text: string; className?: string }[]
   lede:     string
 }) {
   return (
@@ -413,9 +417,12 @@ function PageIntro({ kicker, subtitle, title, lede }: {
         <span className="font-mono text-[11px] tracking-kicker uppercase text-fg-soft">{subtitle}</span>
       </div>
       <Reveal>
-        <h1 className="font-display font-light leading-[0.92] mb-10" style={{ fontSize: 'clamp(60px,12vw,200px)', letterSpacing: '-0.02em' }}>
-          {title}
-        </h1>
+        <AnimatedTitle
+          as="h1"
+          lines={titleLines}
+          className="font-display font-light leading-[0.92] mb-10"
+          style={{ fontSize: 'clamp(60px,12vw,200px)', letterSpacing: '-0.02em' }}
+        />
       </Reveal>
       <Reveal delay={0.1}>
         <p className="font-display font-light italic text-[clamp(20px,1.6vw,26px)] text-fg-soft leading-[1.45] max-w-[620px]">

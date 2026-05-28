@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FiArrowRight, FiArrowUpRight, FiInstagram } from 'react-icons/fi'
 import { SiTiktok, SiYoutube } from 'react-icons/si'
 import Reveal from '../components/ui/Reveal'
+import AnimatedTitle from '../components/ui/AnimatedTitle'
 import Marquee from '../components/ui/Marquee'
 import WorkCard from '../components/ui/WorkCard'
 import Btn from '../components/ui/Btn'
@@ -37,7 +38,11 @@ export default function Home() {
    Hero
    ============================================================ */
 function HeroSection() {
-  const lines = ['Melo,', 'portraitiste', 'hyperréaliste.']
+  const lines = [
+    { text: 'Melo,' },
+    { text: 'portraitiste', className: 'italic text-fg-soft' },
+    { text: 'hyperréaliste.' },
+  ]
 
   return (
     // relative so the absolutely-positioned portrait anchors here, not to an inner div
@@ -61,32 +66,12 @@ function HeroSection() {
       </div>
 
       {/* 2 — Title : grows to fill the middle space */}
-      <h1
+      <AnimatedTitle
+        as="h1"
+        lines={lines}
         className="flex-1 font-display font-light leading-[0.88] relative z-[2] pointer-events-none self-start"
         style={{ fontSize: 'clamp(64px, 9vw, 160px)', letterSpacing: '-0.02em' }}
-      >
-        {lines.map((line, i) => (
-          <span key={i} className="block overflow-hidden">
-            <span className={`block${i === 1 ? ' italic text-fg-soft' : ''}`}>
-              {line.split(' ').map((word, wi) => (
-                <motion.span
-                  key={`${word}-${wi}`}
-                  className="inline-block mr-[0.25em]"
-                  initial={{ opacity: 0, y: '90%', filter: 'blur(8px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{
-                    duration: 0.95,
-                    ease: [0.16, 1, 0.3, 1],
-                    delay: 0.1 + i * 0.18 + wi * 0.08,
-                  }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </span>
-          </span>
-        ))}
-      </h1>
+      />
 
       {/* 3 — Lede + CTAs (left column, portrait sits to the right via absolute) */}
       <Reveal delay={0.2} className="max-w-[420px] flex flex-col gap-8 relative z-[3] shrink-0">
