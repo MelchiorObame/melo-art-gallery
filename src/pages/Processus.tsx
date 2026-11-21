@@ -220,7 +220,7 @@ function BeforeAfterSection() {
       <Reveal variant="clip">
         <div
           ref={containerRef}
-          className="relative overflow-hidden select-none bg-bg-soft cursor-col-resize"
+          className="relative overflow-hidden select-none bg-bg-soft"
           onClick={(e) => move(e.clientX)}
         >
           {/* Before */}
@@ -236,7 +236,7 @@ function BeforeAfterSection() {
 
           {/* Handle */}
           <div
-            className="absolute top-0 bottom-0 flex items-center justify-center cursor-col-resize"
+            className="absolute top-0 bottom-0 flex items-center justify-center"
             style={{ left: `${pct}%`, transform: 'translateX(-50%)', width: 2, background: 'var(--bg)' }}
             onMouseDown={() => { dragging.current = true }}
             onTouchStart={() => { dragging.current = true }}
