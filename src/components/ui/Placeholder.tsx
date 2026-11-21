@@ -113,13 +113,13 @@ export default function Placeholder({
 
       {/* Center description */}
       {description && (
-        <div className="absolute inset-0 flex items-center justify-center font-display font-light italic text-bg text-[clamp(14px,1.4vw,18px)] text-center leading-relaxed px-5">
+        <div className="absolute inset-0 flex items-center justify-center font-display font-light italic text-paper text-[clamp(14px,1.4vw,18px)] text-center leading-relaxed px-5">
           {description}
         </div>
       )}
 
       {/* Bottom label tag */}
-      <div className="absolute bottom-3.5 left-3.5 font-mono text-[10px] tracking-kicker uppercase text-bg bg-fg/80 px-2 py-1 border border-bg/20">
+      <div className="absolute bottom-3.5 left-3.5 font-mono text-[10px] tracking-kicker uppercase text-paper bg-bg-deep/80 px-2 py-1 border border-paper/20">
         {label}
       </div>
     </div>

@@ -6,6 +6,16 @@
     <title>Melo Art — Portraits hyperréalistes</title>
     <meta name="description" content="Portraits hyperréalistes au crayon, fusain et technique mixte. Atelier Melo — Paris." />
     <meta name="theme-color" content="#f3ede3" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.dataset.theme = t;
+          if (t === 'dark') document.querySelector('meta[name="theme-color"]').content = '#17130f';
+        } catch (e) {}
+      })();
+    </script>
     <link rel="preload" as="image" href="/images/mathieu_dart.jpg" fetchpriority="high" media="(min-width: 768px)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

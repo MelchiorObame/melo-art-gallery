@@ -38,7 +38,7 @@ export default function WorkDialog({
           {/* Backdrop */}
           <Dialog.Overlay asChild>
             <motion.div
-              className="fixed inset-0 z-[100] bg-fg/40 backdrop-blur-sm"
+              className="fixed inset-0 z-[100] bg-bg-deep/60 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

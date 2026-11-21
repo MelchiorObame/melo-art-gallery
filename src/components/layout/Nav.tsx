@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { preloadRoute } from '../../lib/routePreload'
+import ThemeToggle from '../ui/ThemeToggle'
 
 const links = [
   { to: '/',          label: 'Accueil'  },
@@ -28,14 +29,8 @@ export default function Nav() {
 
       {/* Nav — fond verre dépoli */}
       <nav
-        className="fixed top-0 left-0 right-0 z-[80] flex flex-wrap items-center justify-between gap-3 text-fg"
-        style={{
-          padding: '22px var(--pad-x)',
-          background: 'rgba(243, 237, 227, 0.82)',
-          backdropFilter: 'blur(24px) saturate(160%)',
-          WebkitBackdropFilter: 'blur(24px) saturate(160%)',
-          borderBottom: '1px solid rgba(43, 37, 32, 0.08)',
-        }}
+        className="nav-glass fixed top-0 left-0 right-0 z-[80] flex flex-wrap items-center justify-between gap-3 text-fg"
+        style={{ padding: '22px var(--pad-x)' }}
         aria-label="Principal"
       >
         <NavLink to="/" className="font-display text-[22px] tracking-[0.04em] text-fg">
@@ -62,6 +57,7 @@ export default function Nav() {
               {label}
             </NavLink>
           ))}
+          <ThemeToggle />
         </div>
       </nav>
     </>

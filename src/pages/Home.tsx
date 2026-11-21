@@ -230,7 +230,7 @@ function FeaturedSection() {
 function BioSection() {
   return (
     <section
-      className="grid grid-cols-1 lg:grid-cols-[2fr_1.2fr] items-start border-t border-line bg-[#ddccb0]"
+      className="grid grid-cols-1 lg:grid-cols-[2fr_1.2fr] items-start border-t border-line bg-bg-bio"
       style={{
         padding: 'clamp(52px,7vw,100px) var(--pad-x)',
         gap: 'clamp(32px,4vw,80px)',

@@ -3,15 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --bg:       #f3ede3;
-  --bg-soft:  #ebe3d4;
-  --bg-deep:  #2b2520;
-  --fg:       #2b2520;
-  --fg-soft:  #7a6a55;
-  --fg-mute:  #a89a82;
-  --accent:   #c4a87a;
-  --line:     rgba(43, 37, 32, 0.14);
-  --line-soft:rgba(43, 37, 32, 0.07);
+  color-scheme: light;
+  --bg-rgb:       243 237 227;  /* #f3ede3 ivoire */
+  --bg-soft-rgb:  235 227 212;  /* #ebe3d4 sable */
+  --bg-deep-rgb:  43 37 32;     /* #2b2520 brun encre — reste sombre dans les 2 thèmes */
+  --bg-bio-rgb:   221 204 176;  /* #ddccb0 bloc Atelier */
+  --fg-rgb:       43 37 32;     /* #2b2520 */
+  --fg-soft-rgb:  122 106 85;   /* #7a6a55 */
+  --fg-mute-rgb:  168 154 130;  /* #a89a82 */
+  --accent-rgb:   196 168 122;  /* #c4a87a sable doré */
+
+  --bg:       rgb(var(--bg-rgb));
+  --bg-soft:  rgb(var(--bg-soft-rgb));
+  --bg-deep:  rgb(var(--bg-deep-rgb));
+  --fg:       rgb(var(--fg-rgb));
+  --fg-soft:  rgb(var(--fg-soft-rgb));
+  --fg-mute:  rgb(var(--fg-mute-rgb));
+  --accent:   rgb(var(--accent-rgb));
+  --line:     rgb(var(--fg-rgb) / 0.14);
+  --line-soft:rgb(var(--fg-rgb) / 0.07);
 
   --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --font-mono:    "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
@@ -21,6 +31,21 @@
   --ease-art:      cubic-bezier(.2, .7, .2, 1);
 }
 
+/* Thème sombre — papier → atelier de nuit : bruns chauds, jamais de noir pur ni de bleu */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-rgb:       23 19 15;     /* #17130f */
+  --bg-soft-rgb:  33 28 22;     /* #211c16 */
+  --bg-deep-rgb:  12 10 7;      /* #0c0a07 */
+  --bg-bio-rgb:   38 31 23;     /* #261f17 */
+  --fg-rgb:       236 228 214;  /* #ece4d6 — 15:1 sur bg */
+  --fg-soft-rgb:  176 162 138;  /* #b0a28a — 7:1 */
+  --fg-mute-rgb:  138 124 100;  /* #8a7c64 — 4.5:1 */
+  --accent-rgb:   212 184 138;  /* #d4b88a */
+  --line:         rgb(var(--fg-rgb) / 0.16);
+  --line-soft:    rgb(var(--fg-rgb) / 0.08);
+}
+
 @layer base {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html {
@@ -28,6 +53,7 @@
     overflow-x: clip;
   }
   body {
+    transition: background-color .35s var(--ease-art), color .35s var(--ease-art);
     background: var(--bg);
     color: var(--fg);
     font-family: "Manrope", "Inter", system-ui, sans-serif;
@@ -46,6 +72,12 @@
 @layer utilities {
   .font-display { font-family: var(--font-display); }
   .font-mono    { font-family: var(--font-mono); }
+  .nav-glass {
+    background: rgb(var(--bg-rgb) / 0.82);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border-bottom: 1px solid rgb(var(--fg-rgb) / 0.08);
+  }
   .px-site      { padding-inline: var(--pad-x); }
 
   /* border-line uses the rgba CSS variable so opacity is consistent */
@@ -58,7 +90,7 @@
     background-image: repeating-linear-gradient(
       135deg,
       transparent 0, transparent 8px,
-      rgba(43,37,32,.04) 8px, rgba(43,37,32,.04) 9px
+      rgb(var(--fg-rgb) / .04) 8px, rgb(var(--fg-rgb) / .04) 9px
     );
   }
 
@@ -74,7 +106,7 @@
   /* Nav mix-blend overlay — text appears correct on all backgrounds */
   .nav-blend {
     mix-blend-mode: difference;
-    color: #f3ede3;
+    color: rgb(243 237 227);
   }
 
   /* Clip reveal start state (Framer handles transition) */

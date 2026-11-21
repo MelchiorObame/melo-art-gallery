@@ -5,13 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:       'var(--bg)',
-        'bg-soft':'var(--bg-soft)',
-        'bg-deep':'var(--bg-deep)',
-        fg:       'var(--fg)',
-        'fg-soft':'var(--fg-soft)',
-        'fg-mute':'var(--fg-mute)',
-        accent:   'var(--accent)',
+        // rgb channels → Tailwind opacity modifiers (bg-fg/40…) work and follow the theme
+        bg:       'rgb(var(--bg-rgb) / <alpha-value>)',
+        'bg-soft':'rgb(var(--bg-soft-rgb) / <alpha-value>)',
+        'bg-deep':'rgb(var(--bg-deep-rgb) / <alpha-value>)',
+        'bg-bio': 'rgb(var(--bg-bio-rgb) / <alpha-value>)',
+        fg:       'rgb(var(--fg-rgb) / <alpha-value>)',
+        'fg-soft':'rgb(var(--fg-soft-rgb) / <alpha-value>)',
+        'fg-mute':'rgb(var(--fg-mute-rgb) / <alpha-value>)',
+        accent:   'rgb(var(--accent-rgb) / <alpha-value>)',
+        paper:    'rgb(243 237 227 / <alpha-value>)', // fixed light ink for text over images
       },
       fontFamily: {
         display: ['var(--font-display)'],
