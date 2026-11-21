@@ -72,3 +72,6 @@ When you need to understand the code, docs, or files in this project:
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
+
+## Design
+appuie toi toujours sur le fichier Design.md pour t'aligner au design de notre application.,
